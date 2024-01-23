@@ -2,15 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CalegRi;
-use App\Models\CalegProv;
-use App\Models\CalegKabkota;
+
 use Illuminate\Http\Request;
-use App\Models\DapilProvWilayah;
 use Illuminate\Routing\Controller;
-use App\Models\DapilKabkotaWilayah;
-use App\Models\Partai;
-use App\Models\TimReferensi;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller

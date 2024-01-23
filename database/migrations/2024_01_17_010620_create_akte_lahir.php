@@ -12,7 +12,27 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('akte_lahir', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
+            $table->timestamp('waktu_input');
+            $table->string('file_keterangan');
+            $table->string('nama');
+            $table->string('nik');
+            $table->string('kelurahan');
+            $table->string('kecamatan');
+            $table->string('nik_saksi_1');
+            $table->string('nama_saksi_1');
+            $table->string('foto_ktp_saksi_1');
+            $table->string('nik_saksi_2');
+            $table->string('nama_saksi_2');
+            $table->string('foto_ktp_saksi_2');
+            $table->string('file_akte_lahir');
+            $table->string('file_kk');
+            $table->integer('status_capil');
+            $table->integer('status_dinsos');
+            $table->integer('status_bpjs');
+            $table->timestamp('waktu_input_capil');
+            $table->timestamp('waktu_input_dinsos');
+            $table->timestamp('waktu_input_bpjs');
             $table->timestamps();
         });
     }

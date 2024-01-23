@@ -20,11 +20,9 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-xl-4 col-lg-4  col-md-4 col-xxl-4 ">
-                                    @if (auth()->user()->foto_profil)
-                                        <img src="{{ auth()->user()->foto_profil }}" width="200" alt="" />
-                                    @else
-                                        <img src="{{ asset('') }}assets/images/avatar/1.png" width="200">
-                                    @endif
+
+                                    {{-- <img src="{{ asset('') }}assets/images/avatar/1.png" width="200"> --}}
+
 
                                 </div>
                                 <!--Tab slider End-->
@@ -32,19 +30,8 @@
                                     <div class="product-detail-content">
                                         <!--Product details-->
                                         <div class="new-arrival-content pr">
-                                            <img src="{{ asset('') }}assets/images/logo/{{ $profil_caleg->partai->logo }}"
-                                                class="logo-abbr" width="53" height="53">
-                                            <h4>{{ $profil_caleg->partai->nama }}</h4>
-                                            <div class="comment-review star-rating">
-                                                <ul>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                    <li><i class="fa fa-star"></i></li>
-                                                </ul>
 
-                                            </div>
+
                                             <div class="d-table mb-2">
                                                 <p class="price float-start d-block">Selamat Datang</p>
                                             </div>

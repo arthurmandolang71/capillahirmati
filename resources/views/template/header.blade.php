@@ -10,7 +10,7 @@
                  <ul class="navbar-nav header-right">
                      <li class="nav-item">
                          <button class="btn btn-primary d-sm-inline-block d-none "><i class="bi bi-person-check-fill"></i>
-                             Admin</button>
+                             Pengguna</button>
                      </li>
                  </ul>
              </div>

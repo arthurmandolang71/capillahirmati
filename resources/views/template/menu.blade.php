@@ -4,7 +4,7 @@
             <li class="dropdown header-profile">
                 <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
                     @if (auth()->user()->foto_profil)
-                        <img src="{{ auth()->user()->foto_profil }}" width="20" alt="" />
+                        <img src="assets/images/{{ auth()->user()->foto_profil }}" width="20" alt="" />
                     @else
                         <img src="{{ asset('') }}assets/images/avatar/1.png" width="20">
                     @endif
@@ -48,14 +48,26 @@
                 </div>
             </li>
 
-            @can('isAdmin')
+            @can('isRsKelurahan')
                 <li>
                     <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                        <i class="bi bi-people-fill"></i>
-                        <span class="nav-text">Capil</span>
+                        <i class="bi bi-basket3-fill"></i>
+                        <span class="nav-text">Data Kelahiran</span>
                     </a>
                     <ul aria-expanded="false">
-                        <li><a href="/pengumumanperkawinan">Pengumuman Perkawinan</a></li>
+                        <li><a href="/pendukungcaleg/index">Tambah</a></li>
+                        <li><a href='/pendukungcaleg/dash?prov=71'>Data</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                        <i class="bi bi-bookmark-dash-fill"></i>
+                        <span class="nav-text">Data Kematian</span>
+                    </a>
+                    <ul aria-expanded="false">
+                        <li><a href="/pendukungcaleg/index">Tambah</a></li>
+                        <li><a href='/pendukungcaleg/dash?prov=71'>Data</a></li>
                     </ul>
                 </li>
             @endcan

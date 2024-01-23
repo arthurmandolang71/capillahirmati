@@ -26,8 +26,8 @@ class DatabaseSeeder extends Seeder
 
         //user login utama
         User::create([
-            'name' => 'unknow',
-            'username' => 'balihobaru',
+            'name' => 'Rs A',
+            'username' => 'demorsbaru',
             'password' =>  bcrypt('testesjodulu'),
             'level' => 1,
             'active' => 1,
@@ -36,10 +36,30 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::create([
-            'name' => 'unknow',
-            'username' => 'adminbaru',
+            'name' => 'capil',
+            'username' => 'capilmanado',
             'password' =>  bcrypt('12345678'),
-            'level' => 1,
+            'level' => 2,
+            'active' => 1,
+            'foto_profil' => 'default_user.jpg',
+            'foto_banner' => 'default_banner.jpg',
+        ]);
+
+        User::create([
+            'name' => 'BPJS',
+            'username' => 'bpjsmanado',
+            'password' =>  bcrypt('12345678'),
+            'level' => 3,
+            'active' => 1,
+            'foto_profil' => 'default_user.jpg',
+            'foto_banner' => 'default_banner.jpg',
+        ]);
+
+        User::create([
+            'name' => 'Dinas Sosial',
+            'username' => 'dinsosmanado',
+            'password' =>  bcrypt('12345678'),
+            'level' => 4,
             'active' => 1,
             'foto_profil' => 'default_user.jpg',
             'foto_banner' => 'default_banner.jpg',

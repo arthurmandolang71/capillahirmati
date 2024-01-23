@@ -37,7 +37,7 @@
         Preloader start
     ********************-->
     <div id="preloader">
-        <img src="{{ asset('') }}assets/images/logo.png" class="logo-abbr" width="53" height="53"
+        <img src="{{ asset('') }}assets/images/pemkot.png" class="logo-abbr" width="53" height="53"
             viewBox="0 0 53 53"> <br>
         <div class="waviy">
             <span style="--i:1">C</span>
@@ -157,9 +157,9 @@
                 typography: "cairo",
                 version: "light",
                 layout: "horizontal",
-                primary: "{{ $color }}",
-                navheaderBg: "{{ $color }}",
-                sidebarBg: "{{ $color }}",
+                primary: "color_5",
+                navheaderBg: "color_5",
+                sidebarBg: "color_5",
                 sidebarStyle: "full",
                 sidebarPosition: "fixed",
                 headerPosition: "fixed",

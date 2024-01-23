@@ -1,5 +1,5 @@
 <div class="footer">
     <div class="copyright">
-        <p style="color: black">Copyright © Designed &amp; Developed by <a href="#">Teman Caleg</a> for 2024</p>
+        <p style="color: black">Copyright © Designed &amp; Developed by <a href="#">Capil Manado</a> | 2024</p>
     </div>
 </div>
