@@ -94,7 +94,7 @@
                                             <div class="input-group">
                                                 <span class="input-group-text"> <i class="bi bi-whatsapp"></i>
                                                 </span>
-                                                <input name="email" value="{{ old('email', $aktelahir->no_wa) }}"
+                                                <input name="email" value="{{ old('email', $aktelahir->email) }}"
                                                     type="text" class="form-control @error('email') is-invalid @enderror"
                                                     id="validationCustomUsername"
                                                     placeholder="Masukan No.Wa Aktif dari keluarga" disabled>
@@ -237,6 +237,26 @@
                                             </select>
                                         </div>
                                     </div> --}}
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            @if ($aktelahir->file_akte_lahir)
+                                                <a href="{{ asset('storage/' . $aktelahir->file_akte_lahir) }}"
+                                                    target="_blank" type="button"
+                                                    class="btn btn-sm btn-info btn-lg btn-block">File
+                                                    Akte Lahir</a>
+                                            @endif
+                                        </div>
+                                        <div class="col-md-6">
+                                            @if ($aktelahir->file_kk_baru)
+                                                <a href="{{ asset('storage/' . $aktelahir->file_kk_baru) }}"
+                                                    target="_blank" type="button"
+                                                    class="btn btn-sm btn-info btn-lg btn-block">File
+                                                    Kartu Keluarga Baru</a>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <br>
                                     <div class="row ">
                                         <div class="mb-6 col-md-12">
                                             <label class="text-label form-label" for="validationCustomUsername">Respon

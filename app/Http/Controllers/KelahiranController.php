@@ -121,9 +121,9 @@ class KelahiranController extends Controller
             $validasi['file_akte_nikah'] = ['image', 'file', 'mimes:jpeg,png,jpg', 'max:5024'];
         }
 
-        if ($request->file('file_sptjm')) {
-            $validasi['file_sptjm'] = ['image', 'file', 'mimes:jpeg,png,jpg', 'max:5024'];
-        }
+        // if ($request->file('file_sptjm')) {
+        //     $validasi['file_sptjm'] = ['image', 'file', 'mimes:jpeg,png,jpg', 'max:5024'];
+        // }
 
         $validateData = $request->validate($validasi);
 
@@ -134,9 +134,9 @@ class KelahiranController extends Controller
             $validateData['akte_nikah'] = $request->file('file_akte_nikah')->store('akte_nikah');
         }
 
-        if ($request->file('file_sptjm')) {
-            $validateData['file_sptjm'] = $request->file('file_akte_nikah')->store('sptjm-kelahiran');
-        }
+        // if ($request->file('file_sptjm')) {
+        //     $validateData['file_sptjm'] = $request->file('file_akte_nikah')->store('sptjm-kelahiran');
+        // }
 
         $validateData['waktu_input_rs_kelurahan'] = date("Y-d-m H:i:s");
         $validateData['status_akte'] = 1;
@@ -188,24 +188,24 @@ class KelahiranController extends Controller
     {
         // dd($request);
 
-        if ($request->file('file_file_kk_baru')) {
-            $validasi['file_kk_baru'] = ['required', 'file', 'mimes:application/pdf', 'max:5024'];
+        if ($request->file('file_kk_baru')) {
+            $validasi['file_kk_baru'] = ['required', 'file', 'mimes:pdf', 'max:5024'];
         }
 
         if ($request->file('file_akte_lahir')) {
-            $validasi['file_akte_lahir'] = ['required', 'file', 'mimes:application/pdf', 'max:5024'];
+            $validasi['file_akte_lahir'] = ['required', 'file', 'mimes:pdf', 'max:5024'];
         }
 
         if ($request->file('file_file_kk_baru') || $request->file('file_akte_lahir')) {
             $validateData = $request->validate($validasi);
         }
 
-        if ($request->file('file_file_kk_barusptjm')) {
-            $validateData['file_kk_baru'] = $request->file('image')->store('file_kk_baru');
+        if ($request->file('file_kk_baru')) {
+            $validateData['file_kk_baru'] = $request->file('file_kk_baru')->store('file_kk_baru');
         }
 
         if ($request->file('file_akte_lahir')) {
-            $validateData['file_akte_lahir'] = $request->file('image')->store('file_akte_lahir');
+            $validateData['file_akte_lahir'] = $request->file('file_akte_lahir')->store('file_akte_lahir');
         }
 
         if (auth()->user()->level == 2) {
@@ -244,27 +244,27 @@ class KelahiranController extends Controller
                 $validasi['file_akte_nikah'] = ['image', 'file', 'mimes:jpeg,png,jpg', 'max:5024'];
             }
 
-            if ($request->file('file_sptjm')) {
-                $validasi['file_sptjm'] = ['image', 'file', 'mimes:jpeg,png,jpg', 'max:5024'];
-            }
+            // if ($request->file('file_sptjm')) {
+            //     $validasi['file_sptjm'] = ['image', 'file', 'mimes:jpeg,png,jpg', 'max:5024'];
+            // }
 
             $validateData = $request->validate($validasi);
 
             if ($request->file('file_surat_lahir')) {
-                $validateData['file_surat_lahir'] = $request->file('image')->store('file_surat_lahir');
+                $validateData['file_surat_lahir'] = $request->file('file_surat_lahir')->store('file_surat_lahir');
             }
 
             if ($request->file('file_kartu_keluarga')) {
-                $validateData['file_kartu_keluarga'] = $request->file('image')->store('file_surat_lahir');
+                $validateData['file_kartu_keluarga'] = $request->file('imafile_surat_lahirge')->store('file_surat_lahir');
             }
 
             if ($request->file('file_akte_nikah')) {
-                $validateData['file_akte_nikah'] = $request->file('image')->store('file_surat_lahir');
+                $validateData['file_akte_nikah'] = $request->file('file_akte_nikah')->store('file_akte_nikah');
             }
 
-            if ($request->file('file_sptjm')) {
-                $validateData['file_sptjm'] = $request->file('image')->store('file_surat_lahir');
-            }
+            // if ($request->file('file_sptjm')) {
+            //     $validateData['file_sptjm'] = $request->file('image')->store('file_surat_lahir');
+            // }
 
             $validateData['status_akte'] = 1;
         }

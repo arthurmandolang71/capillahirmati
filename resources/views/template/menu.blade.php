@@ -59,16 +59,15 @@
                     <li><a href='/download_file/kelahiran'>Download File</a></li>
                 </ul>
             </li>
-
             <li>
                 <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                     <i class="bi bi-bookmark-dash-fill"></i>
                     <span class="nav-text">Data Kematian</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="/kematian/index">Tambah</a></li>
-                    <li><a href='/kematian/dash?prov=71'>Data</a></li>
-                    <li><a href='/format_file/kematian'>Download File</a></li>
+                    <li><a href="#">Tambah</a></li>
+                    <li><a href='#'>Data</a></li>
+                    <li><a href='#'>Download File</a></li>
                 </ul>
             </li>
 

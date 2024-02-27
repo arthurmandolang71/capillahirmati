@@ -237,6 +237,32 @@
                                             </select>
                                         </div>
                                     </div> --}}
+                                    <hr>
+                                    <div class="row">
+                                        <div class="mb-3 col-md-4">
+                                            <p class="text-center">Surat Keterangan Lahir :</p>
+                                            <a href="{{ asset('storage/' . $aktelahir->file_surat_lahir) }}"
+                                                target="_blank"><img
+                                                    src="{{ asset('storage/' . $aktelahir->file_surat_lahir) }}"
+                                                    alt="" width="300px"> </a>
+
+                                        </div>
+                                        <div class="mb-3 col-md-4">
+                                            <p class="text-center">Kartu Keluarga :</p>
+                                            <a href="{{ asset('storage/' . $aktelahir->file_kartu_keluarga) }}"
+                                                target="_blank"> <img
+                                                    src="{{ asset('storage/' . $aktelahir->file_kartu_keluarga) }}"
+                                                    alt="" width="300px"></a>
+                                        </div>
+                                        <div class="mb-3 col-md-4">
+                                            <p class="text-center">Akte Nikah :</p>
+                                            <a href="{{ asset('storage/' . $aktelahir->file_akte_nikah) }}"
+                                                target="_blank"><img
+                                                    src="{{ asset('storage/' . $aktelahir->file_akte_nikah) }}"
+                                                    alt="" width="300px"></a>
+                                        </div>
+                                    </div>
+                                    <hr>
                                     <div class="row ">
                                         <div class="mb-6 col-md-6">
                                             <label class="text-label form-label" for="validationCustomUsername">Respon
@@ -289,10 +315,15 @@
                                                         {{ $message }}
                                                     </div>
                                                 @enderror
-                                                <div>
-                                                    <img class="img-preview1 img-fluid">
-                                                </div>
+
                                             </div>
+                                            <hr>
+                                            @if ($aktelahir->file_akte_lahir)
+                                                <a href="{{ asset('storage/' . $aktelahir->file_akte_lahir) }}"
+                                                    target="_blank" type="button"
+                                                    class="btn btn-sm btn-info btn-lg btn-block">File
+                                                    Akte Lahir</a>
+                                            @endif
                                         </div>
                                         <div class="mb-3 col-md-6">
                                             <label class="text-label form-label" for="validationCustomUsername">File KK
@@ -310,12 +341,15 @@
                                                         {{ $message }}
                                                     </div>
                                                 @enderror
-                                                <div>
-                                                    <img class="img-preview2 img-fluid">
-                                                </div>
-                                            </div>
-                                        </div>
 
+                                            </div>
+                                            <hr>
+                                            @if ($aktelahir->file_kk_baru)
+                                                <a href="{{ asset('storage/' . $aktelahir->file_kk_baru) }}"
+                                                    target="_blank" type="button"
+                                                    class="btn btn-sm btn-info btn-lg btn-block">File Kartu Keluaraga</a>
+                                            @endif
+                                        </div>
 
                                     </div>
 
@@ -370,38 +404,6 @@
 
     <script src="{{ asset('') }}assets/vendor/select2/js/select2.full.min.js"></script>
     <script src="{{ asset('') }}assets/js/plugins-init/select2-init.js"></script>
-
-    <script>
-        function priviewImage1() {
-            const image = document.querySelector('#image1');
-            const view = document.querySelector('.img-preview1');
-
-            view.style.display = 'block';
-
-            const oFReader = new FileReader();
-            oFReader.readAsDataURL(image.files[0]);
-
-            oFReader.onload = function(oFREvent) {
-                view.src = oFREvent.target.result;
-            }
-        }
-    </script>
-
-    <script>
-        function priviewImage2() {
-            const image = document.querySelector('#image2');
-            const view = document.querySelector('.img-preview2');
-
-            view.style.display = 'block';
-
-            const oFReader = new FileReader();
-            oFReader.readAsDataURL(image.files[0]);
-
-            oFReader.onload = function(oFREvent) {
-                view.src = oFREvent.target.result;
-            }
-        }
-    </script>
 @endSection
 
 <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js"

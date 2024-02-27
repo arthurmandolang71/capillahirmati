@@ -230,7 +230,7 @@
 
 
                                     <div class="row ">
-                                        <div class="mb-3 col-md-3">
+                                        <div class="mb-3 col-md-4">
                                             <label class="text-label form-label" for="validationCustomUsername">
                                                 *Surat Keterangan Lahir (jpeg/jpg)</label>
                                             <div class="input-group">
@@ -250,7 +250,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="mb-3 col-md-3">
+                                        <div class="mb-3 col-md-4">
                                             <label class="text-label form-label" for="validationCustomUsername">*Kartu
                                                 Keluarga (jpeg/jpg) </label>
                                             <div class="input-group">
@@ -270,7 +270,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="mb-3 col-md-3">
+                                        <div class="mb-3 col-md-4">
                                             <label class="text-label form-label" for="validationCustomUsername">Foto
                                                 Akte Nikah (Jika ada) </label>
                                             <div class="input-group">
@@ -290,7 +290,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="mb-3 col-md-3">
+                                        {{-- <div class="mb-3 col-md-3">
                                             <label class="text-label form-label" for="validationCustomUsername">Foto
                                                 SPTJM Kelahiran (Khusus Kelurahan) </label>
                                             <div class="input-group">
@@ -309,7 +309,7 @@
                                                     <img class="img-preview4 img-fluid">
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </div>
 
                                     <div class="mb-3 col-md-6">

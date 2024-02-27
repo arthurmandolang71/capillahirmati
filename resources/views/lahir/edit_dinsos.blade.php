@@ -237,6 +237,28 @@
                                             </select>
                                         </div>
                                     </div> --}}
+
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            @if ($aktelahir->file_akte_lahir)
+                                                <a href="{{ asset('storage/' . $aktelahir->file_akte_lahir) }}"
+                                                    target="_blank" type="button"
+                                                    class="btn btn-sm btn-info btn-lg btn-block">File
+                                                    Akte Lahir</a>
+                                            @endif
+                                        </div>
+                                        <div class="col-md-6">
+                                            @if ($aktelahir->file_kk_baru)
+                                                <a href="{{ asset('storage/' . $aktelahir->file_kk_baru) }}"
+                                                    target="_blank" type="button"
+                                                    class="btn btn-sm btn-info btn-lg btn-block">File
+                                                    Kartu Keluarga Baru</a>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <br>
+
                                     <div class="row ">
                                         <div class="mb-6 col-md-12">
                                             <label class="text-label form-label" for="validationCustomUsername">Respon

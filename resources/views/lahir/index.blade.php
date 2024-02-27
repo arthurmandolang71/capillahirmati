@@ -33,17 +33,17 @@
                         <div class="card-body">
 
                             <!-- start content -->
-                            <div class="container">
-                                <form action="/dptcaleg" method="get">
+                            {{-- <div class="container">
+                                <form action="/" method="get">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label class="form-label" for="multicol-country">Kecamatan</label>
                                             <select id="kecamatan" name="kecamatan" class="select2 form-select"
                                                 data-allow-clear="true">
-                                                {{-- @if ($select_kecamatan)
+                                                @if ($select_kecamatan)
                                                     <option value="{{ $select_kecamatan['id'] }}"> Pencarian
                                                         {{ $select_kecamatan['nama'] }}</option>
-                                                @endif --}}
+                                                @endif
                                                 <option value="">Pilih</option>
                                             </select>
                                             <hr>
@@ -52,16 +52,16 @@
                                             <label class="form-label" for="multicol-country">Kelurahan</label>
                                             <select id="kelurahandesa" name="kelurahandesa" class="select2 form-select"
                                                 data-allow-clear="true">
-                                                {{-- @if ($select_kelurahandesa)
+                                                @if ($select_kelurahandesa)
                                                     <option value="{{ $select_kelurahandesa['id'] }}"> Pencarian
                                                         {{ $select_kelurahandesa['nama'] }}</option>
-                                                @endif --}}
+                                                @endif
                                                 <option value="">Pilih</option>
                                             </select>
                                             <hr>
                                         </div>
                                         <div class="col-md-8">
-                                            {{-- <label class="form-label" for="multicol-country">Nama</label> --}}
+                                            <label class="form-label" for="multicol-country">Nama</label>
                                             @if ($cari_nama)
                                                 <input type="text" name="cari_nama" id="nama" class="form-control"
                                                     placeholder="John" value="{{ $cari_nama }}" />
@@ -79,7 +79,7 @@
                                         </div>
                                     </div>
                                 </form>
-                            </div>
+                            </div> --}}
 
                             <div class="table-responsive">
                                 <table id="example" class="table table-striped display" style="width:100%">
@@ -92,7 +92,8 @@
                                             <th>Nama Ibu</th>
                                             <th>Kelurahan</th>
                                             <th>Tanggal Lahir</th>
-                                            <th>#</th>
+                                            <th>Progress</th>
+                                            <th>File</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -202,11 +203,21 @@
                                                                 Belum Update</span>
                                                         @endif
                                                     @endif
-
-
-
-
-
+                                                </td>
+                                                <td>
+                                                    @if ($item->file_akte_lahir)
+                                                        <a href="{{ asset('storage/' . $item->file_akte_lahir) }}"
+                                                            target="_blank"><span
+                                                                class="badge badge-lg light badge-success">Akte
+                                                                Lahir</span></a>
+                                                    @endif
+                                                    <br>
+                                                    @if ($item->file_kk_baru)
+                                                        <a href="{{ asset('storage/' . $item->file_kk_baru) }}"
+                                                            target="_blank"><span
+                                                                class="badge badge-lg light badge-success">Kartu
+                                                                Keluarga</span></a>
+                                                    @endif
                                                 </td>
                                             </tr>
                                         @endforeach
