@@ -8,24 +8,23 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class Wilayah extends Model
+class KelurahanDesa extends Model
 {
     use HasFactory;
 
-    protected $table = 'wilayah';
+    protected $table = 'kelurahandesa';
     protected $primaryKey = 'id';
     protected $guarded = ['id'];
     // protected $with = ['kecamatan', 'kabkota'];
 
 
-
-    public function kabkota(): HasOne
+    public function kabkota_ref(): HasOne
     {
         return $this->hasOne(Kabkota::class, 'id', 'kode_kab');
     }
 
-    public function kecamatan(): HasOne
+    public function kecamatan_ref(): HasOne
     {
-        return $this->hasOne(Kecamatan::class, 'id', 'kode_kec');
+        return $this->hasOne(Kecamatan::class, 'id', 'kecamatan');
     }
 }

@@ -41,6 +41,10 @@ class AppServiceProvider extends ServiceProvider
             return $user->level == 4;
         });
 
+        Gate::define('isAdmin', function (User $user) {
+            return $user->level == 10;
+        });
+
 
         Gate::define('profil', function () {
             return request()->segment(2) == request()->session()->get('user_id');

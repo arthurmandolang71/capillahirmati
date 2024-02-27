@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class UserLevel extends Model
 {
     use HasFactory;
+
+    protected $table = 'user_level';
+    protected $primaryKey = 'id';
+    protected $guarded = ['id'];
 }

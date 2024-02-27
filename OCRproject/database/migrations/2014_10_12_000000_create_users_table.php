@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('stakeholder', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->foreignUuid('user_level_id');
-            $table->string('nama');
-            $table->string('keterangan');
+        Schema::create('users', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('stakeholder');
+        Schema::dropIfExists('users');
     }
 };

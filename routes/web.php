@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\PenggunaController;
+use App\Http\Controllers\KelahiranController;
 use App\Http\Controllers\PengumumanPernikahanController;
 
 /*
@@ -43,15 +45,22 @@ Route::controller(ProfilController::class)->middleware('auth')->group(function (
     Route::put('/profil/{user}', 'update');
 });
 
-Route::controller(PengumumanPernikahanController::class)->middleware('isCaleg')->group(function () {
-    Route::get('/pengumumanpernikahan/dash', 'dashboard');
-    Route::get('/pengumumanpernikahan/index', 'index');
+Route::resource('/pengguna', PenggunaController::class)->middleware('isAdmin')->except(['show'])->parameters([
+    'user' => 'user',
+]);
 
-    Route::get('/pengumumanpernikahan/create/{id_dpt}/{status}', 'create');
-    Route::post('/pengumumanpernikahan', 'store');
+Route::controller(KelahiranController::class)->middleware('auth')->group(function () {
+    Route::get('/kelahiran/dash', 'dashboard');
+    Route::get('/kelahiran', 'index');
+    Route::get('/kelahiran/show_rs/{id}', 'show_rs');
 
-    Route::get('/pengumumanpernikahan/pilih_print', 'pilih_print');
+    Route::get('/kelahiran/create/', 'create');
+    Route::get('/kelahiran/{id}/edit', 'edit');
 
-    Route::get('/pengumumanpernikahan/form_destroy/{id_dpt}', 'form_destroy');
-    Route::delete('/pengumumanpernikahan/{id}', 'destroy');
+    Route::post('/kelahiran', 'store');
+    Route::put('/kelahiran/{id}', 'update');
+
+    // Route::delete('/kelahiran/{id}', 'destroy');
+
+    Route::get('/get_kelurahandesa/kelahiran/{id}', 'getKelurahanDesa');
 });

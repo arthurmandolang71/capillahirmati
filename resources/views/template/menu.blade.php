@@ -8,7 +8,6 @@
                     @else
                         <img src="{{ asset('') }}assets/images/avatar/1.png" width="20">
                     @endif
-
                     <div class="header-info ms-3">
                         <span class="font-w600 ">Hi,<b>{{ auth()->user()->username }}</b></span>
                         <small class="text-end font-w400">{{ auth()->user()->name }}</small>
@@ -48,26 +47,38 @@
                 </div>
             </li>
 
-            @can('isRsKelurahan')
-                <li>
-                    <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                        <i class="bi bi-basket3-fill"></i>
-                        <span class="nav-text">Data Kelahiran</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li><a href="/pendukungcaleg/index">Tambah</a></li>
-                        <li><a href='/pendukungcaleg/dash?prov=71'>Data</a></li>
-                    </ul>
-                </li>
+            {{-- @can('isRsKelurahan') --}}
+            <li>
+                <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <i class="bi bi-basket3-fill"></i>
+                    <span class="nav-text">Data Kelahiran</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li><a href="/kelahiran/create">Tambah</a></li>
+                    <li><a href='/kelahiran/'>Data</a></li>
+                </ul>
+            </li>
 
+            <li>
+                <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <i class="bi bi-bookmark-dash-fill"></i>
+                    <span class="nav-text">Data Kematian</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li><a href="/kematian/index">Tambah</a></li>
+                    <li><a href='/kematian/dash?prov=71'>Data</a></li>
+                </ul>
+            </li>
+
+            @can('isAdmin')
                 <li>
                     <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                        <i class="bi bi-bookmark-dash-fill"></i>
-                        <span class="nav-text">Data Kematian</span>
+                        <i class="bi bi-people"></i>
+                        <span class="nav-text">Stakoholder</span>
                     </a>
                     <ul aria-expanded="false">
-                        <li><a href="/pendukungcaleg/index">Tambah</a></li>
-                        <li><a href='/pendukungcaleg/dash?prov=71'>Data</a></li>
+                        <li><a href="/pengguna/create">Tambah</a></li>
+                        <li><a href='/pengguna'>Data</a></li>
                     </ul>
                 </li>
             @endcan

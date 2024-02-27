@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\User;
 use App\Models\RefAgama;
+use App\Models\UserLevel;
 use App\Models\RefPekerjaan;
 use App\Models\RefPendidikan;
 use Illuminate\Database\Seeder;
@@ -27,8 +28,8 @@ class DatabaseSeeder extends Seeder
         //user login utama
         User::create([
             'name' => 'Rs A',
-            'username' => 'demorsbaru',
-            'password' =>  bcrypt('testesjodulu'),
+            'username' => 'rumasaki',
+            'password' =>  bcrypt('rumasaki'),
             'level' => 1,
             'active' => 1,
             'foto_profil' => 'default_user.jpg',
@@ -36,9 +37,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::create([
-            'name' => 'capil',
-            'username' => 'capilmanado',
-            'password' =>  bcrypt('12345678'),
+            'name' => 'DisDukCapil Kota Manado',
+            'username' => 'capil',
+            'password' =>  bcrypt('capil'),
             'level' => 2,
             'active' => 1,
             'foto_profil' => 'default_user.jpg',
@@ -46,7 +47,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::create([
-            'name' => 'BPJS',
+            'name' => 'BPJS Kota Manado',
             'username' => 'bpjsmanado',
             'password' =>  bcrypt('12345678'),
             'level' => 3,
@@ -56,13 +57,58 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::create([
-            'name' => 'Dinas Sosial',
+            'name' => 'Dinsos Kota Manado',
             'username' => 'dinsosmanado',
             'password' =>  bcrypt('12345678'),
             'level' => 4,
             'active' => 1,
             'foto_profil' => 'default_user.jpg',
             'foto_banner' => 'default_banner.jpg',
+        ]);
+
+        User::create([
+            'name' => 'Admin',
+            'username' => 'admin',
+            'password' =>  bcrypt('admin'),
+            'level' => 10,
+            'active' => 1,
+            'foto_profil' => 'default_user.jpg',
+            'foto_banner' => 'default_banner.jpg',
+        ]);
+
+        User::create([
+            'name' => 'Admin Backup',
+            'username' => 'adminbakcup',
+            'password' =>  bcrypt('adminbakcup'),
+            'level' => 10,
+            'active' => 1,
+            'foto_profil' => 'default_user.jpg',
+            'foto_banner' => 'default_banner.jpg',
+        ]);
+
+        UserLevel::create([
+            'id' => 1,
+            'nama' => 'Rumah Sakit/Kelurahan',
+        ]);
+
+        UserLevel::create([
+            'id' => 2,
+            'nama' => 'DisDukCapil',
+        ]);
+
+        UserLevel::create([
+            'id' => 3,
+            'nama' => 'BPJS',
+        ]);
+
+        UserLevel::create([
+            'id' => 4,
+            'nama' => 'Dinas Sosial',
+        ]);
+
+        UserLevel::create([
+            'id' => 10,
+            'nama' => 'Admin',
         ]);
 
         // ref agama

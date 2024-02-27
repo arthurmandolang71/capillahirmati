@@ -36,11 +36,13 @@ class LoginController extends Controller
             $username = auth()->user()->username;
             $name = auth()->user()->name;
             $foto = auth()->user()->foto;
+            $level = auth()->user()->level;
 
             $request->session()->put('user_id', $id);
             $request->session()->put('username', $username);
             $request->session()->put('name', $name);
             $request->session()->put('foto', $foto);
+            $request->session()->put('level', $level);
 
             // dd(Auth::user());
 
