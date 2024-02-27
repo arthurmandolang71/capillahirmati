@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\KelahiranController;
+use App\Http\Controllers\DownloadFileController;
 use App\Http\Controllers\PengumumanPernikahanController;
 
 /*
@@ -63,4 +64,9 @@ Route::controller(KelahiranController::class)->middleware('auth')->group(functio
     // Route::delete('/kelahiran/{id}', 'destroy');
 
     Route::get('/get_kelurahandesa/kelahiran/{id}', 'getKelurahanDesa');
+});
+
+Route::controller(DownloadFileController::class)->middleware('auth')->group(function () {
+    Route::get('/download_file/kelahiran', 'lahir');
+    Route::get('/download_file/kematian', 'mati');
 });

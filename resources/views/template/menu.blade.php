@@ -56,6 +56,7 @@
                 <ul aria-expanded="false">
                     <li><a href="/kelahiran/create">Tambah</a></li>
                     <li><a href='/kelahiran/'>Data</a></li>
+                    <li><a href='/download_file/kelahiran'>Download File</a></li>
                 </ul>
             </li>
 
@@ -67,6 +68,7 @@
                 <ul aria-expanded="false">
                     <li><a href="/kematian/index">Tambah</a></li>
                     <li><a href='/kematian/dash?prov=71'>Data</a></li>
+                    <li><a href='/format_file/kematian'>Download File</a></li>
                 </ul>
             </li>
 
