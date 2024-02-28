@@ -88,9 +88,9 @@
                                             @if (auth()->user()->level != 1)
                                                 <th>Stakeholder</th>
                                             @endif
-                                            <th>Nama Anak</th>
-                                            <th>Nama Ibu</th>
-                                            <th>Kelurahan</th>
+                                            <th>Nama Bayi</th>
+                                            <th>Nama Ibu Kandung</th>
+                                            <th>Kartu Keluarga</th>
                                             <th>Tanggal Lahir</th>
                                             <th>Progress</th>
                                             <th>File</th>
@@ -104,7 +104,11 @@
                                                 @endif
                                                 <td><strong>{{ $item->nama_anak }}</strong></td>
                                                 <td>{{ $item->nama_ibu }}</td>
-                                                <td>{{ $item->kecamatan_ref->nama }} <br> {{ $item->kelurahan_ref->nama }}
+                                                <td> <a href="{{ asset('storage/' . $item->file_kartu_keluarga) }}"
+                                                        target="_blank"><span
+                                                            class="badge badge-lg light badge-info">{{ $item->no_kk }}
+                                                        </span>
+                                                    </a>
                                                 </td>
                                                 <td>{{ $item->tanggal_lahir }}</td>
                                                 <td>
@@ -158,8 +162,6 @@
                                                         @endif
                                                     @endif
 
-
-
                                                     @if (auth()->user()->level == 3)
                                                         <br>
                                                         @if ($item->status_bpjs == 1)
@@ -205,6 +207,7 @@
                                                     @endif
                                                 </td>
                                                 <td>
+                                                    <br>
                                                     @if ($item->file_akte_lahir)
                                                         <a href="{{ asset('storage/' . $item->file_akte_lahir) }}"
                                                             target="_blank"><span
@@ -224,11 +227,15 @@
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <th>Nama Anak</th>
-                                            <th>Nama Ibu</th>
-                                            <th>Kelurahan</th>
-                                            <th>Tanggal</th>
-                                            <th>#</th>
+                                            @if (auth()->user()->level != 1)
+                                                <th>Stakeholder</th>
+                                            @endif
+                                            <th>Nama Bayi</th>
+                                            <th>Nama Ibu Kandung</th>
+                                            <th>Kartu Keluaraga</th>
+                                            <th>Tanggal Lahir</th>
+                                            <th>Progress</th>
+                                            <th>File</th>
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -245,101 +252,91 @@
     </div>
 @endSection
 
-
-
 @section('footer')
     <!-- Datatable -->
     <script src="{{ asset('') }}assets/vendor/datatables/js/jquery.dataTables.min.js"></script>
     <script src="{{ asset('') }}assets/js/plugins-init/datatables.init.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js"
+        integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function() {
+            // Department Change
+            $('#kabkota').change(function() {
+                // Department id
+                var id = $(this).val();
+                // Empty the dropdown
+                $('#kecamatan').find('option').not(':first').remove();
+                // AJAX request 
+                $.ajax({
+                    url: '/get_kecamatan/dptcaleg/' + id,
+                    type: 'get',
+                    dataType: 'json',
+                    success: function(response) {
+                        console.log(response['data']);
+
+                        var len = 0;
+                        if (response['data'] != null) {
+                            len = response['data'].length;
+                        }
+
+                        if (len > 0) {
+                            // Read data and create <option >
+                            for (var i = 0; i < len; i++) {
+
+                                var id = response['data'][i].id;
+                                var nama = response['data'][i].nama;
+
+                                var option = "<option value='" + id + "'>" + nama + "</option>";
+
+                                $("#kecamatan").append(option);
+                            }
+                        }
+
+                    }
+                });
+            });
+        });
+    </script>
+
+    {{-- get kelurahan --}}
+    <script>
+        $(document).ready(function() {
+            // Department Change
+            $('#kecamatan').change(function() {
+                var id = $(this).val();
+                // Empty the dropdown
+                $('#kelurahandesa').find('option').not(':first').remove();
+                // AJAX request 
+                $.ajax({
+                    url: '/get_kelurahandesa/dptcaleg/' + id,
+                    type: 'get',
+                    dataType: 'json',
+                    success: function(response) {
+                        console.log(response['data']);
+
+                        var len = 0;
+                        if (response['data'] != null) {
+                            len = response['data'].length;
+                        }
+
+                        if (len > 0) {
+                            // Read data and create <option >
+                            for (var i = 0; i < len; i++) {
+
+                                var id = response['data'][i].id;
+                                var nama = response['data'][i].nama;
+
+                                var option = "<option value='" + id + "'>" + nama + "</option>";
+
+                                $("#kelurahandesa").append(option);
+                            }
+                        }
+
+                    }
+                });
+            });
+        });
+    </script>
 @endSection
-
-
-
-<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js"
-    integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
-
-<script>
-    $(document).ready(function() {
-
-        // Department Change
-        $('#kabkota').change(function() {
-
-            // Department id
-            var id = $(this).val();
-
-            // Empty the dropdown
-            $('#kecamatan').find('option').not(':first').remove();
-
-            // AJAX request 
-            $.ajax({
-                url: '/get_kecamatan/dptcaleg/' + id,
-                type: 'get',
-                dataType: 'json',
-                success: function(response) {
-                    console.log(response['data']);
-
-                    var len = 0;
-                    if (response['data'] != null) {
-                        len = response['data'].length;
-                    }
-
-                    if (len > 0) {
-                        // Read data and create <option >
-                        for (var i = 0; i < len; i++) {
-
-                            var id = response['data'][i].id;
-                            var nama = response['data'][i].nama;
-
-                            var option = "<option value='" + id + "'>" + nama + "</option>";
-
-                            $("#kecamatan").append(option);
-                        }
-                    }
-
-                }
-            });
-        });
-    });
-</script>
-
-{{-- get kelurahan --}}
-<script>
-    $(document).ready(function() {
-
-        // Department Change
-        $('#kecamatan').change(function() {
-            var id = $(this).val();
-            // Empty the dropdown
-            $('#kelurahandesa').find('option').not(':first').remove();
-
-            // AJAX request 
-            $.ajax({
-                url: '/get_kelurahandesa/dptcaleg/' + id,
-                type: 'get',
-                dataType: 'json',
-                success: function(response) {
-                    console.log(response['data']);
-
-                    var len = 0;
-                    if (response['data'] != null) {
-                        len = response['data'].length;
-                    }
-
-                    if (len > 0) {
-                        // Read data and create <option >
-                        for (var i = 0; i < len; i++) {
-
-                            var id = response['data'][i].id;
-                            var nama = response['data'][i].nama;
-
-                            var option = "<option value='" + id + "'>" + nama + "</option>";
-
-                            $("#kelurahandesa").append(option);
-                        }
-                    }
-
-                }
-            });
-        });
-    });
-</script>

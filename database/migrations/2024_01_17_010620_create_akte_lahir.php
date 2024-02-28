@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('anak_ke')->nullable();
             $table->string('jenis_kelamin')->nullable();
             $table->string('tanggal_lahir')->nullable();
+            $table->string('berat_bayi')->nullable();
+            $table->string('panjang_bayi')->nullable();
             $table->string('kelurahan')->nullable();
             $table->string('kecamatan')->nullable();
             $table->string('waktu_input_rs_kelurahan')->nullable();

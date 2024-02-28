@@ -45,6 +45,14 @@
                                 </div>
                             @endif
 
+                            @if ($aktelahir->catatan_capil)
+                                <div class="alert alert-danger" role="alert">
+                                    Koreksi Disdukcapil : <br>
+                                    {{ $aktelahir->catatan_capil }}
+                                </div>
+                            @endif
+
+
                             <div class="basic-form">
                                 <form action="/kelahiran/{{ $aktelahir->id }}"
                                     class="form-valide-with-icon needs-validation" method="post"
@@ -301,26 +309,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        {{-- <div class="mb-3 col-md-3">
-                                            <label class="text-label form-label" for="validationCustomUsername">Foto
-                                                SPTJM Kelahiran (Khusus Kelurahan) </label>
-                                            <div class="input-group">
-                                                <div class="form-file">
-                                                    <input name="sptjm" type="file"
-                                                        class="form-file-input form-control @error('sptjm') is-invalid @enderror"
-                                                        id="image4" onchange="priviewImage4()">
-                                                </div>
-                                                <span class="input-group-text">Upload</span>
-                                                @error('sptjm')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
-                                                <div>
-                                                    <img class="img-preview4 img-fluid">
-                                                </div>
-                                            </div>
-                                        </div> --}}
+
                                     </div>
 
                                     <div class="mb-3 col-md-6">

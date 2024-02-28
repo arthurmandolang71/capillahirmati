@@ -8,7 +8,6 @@ use App\Models\Kecamatan;
 use Illuminate\Http\Request;
 use App\Models\KelurahanDesa;
 
-
 class KelahiranController extends Controller
 {
     /**
@@ -60,7 +59,7 @@ class KelahiranController extends Controller
             'select_kecamatan' => $select_kecamatan,
             'select_kelurahandesa' => $select_kelurahandesa,
             'cari_nama' => $cari_nama,
-            'aktelahir' => $aktelahir->get(),
+            'aktelahir' => $aktelahir->orderBy('tanggal_lahir', 'asc')->get(),
         ]);
     }
 
@@ -101,7 +100,6 @@ class KelahiranController extends Controller
      */
     public function store(Request $request)
     {
-
         $validasi = [
             'no_kk' => ['required'],
             'nama_ibu' => ['required'],
@@ -110,8 +108,10 @@ class KelahiranController extends Controller
             'anak_ke' => ['required'],
             'jenis_kelamin' => ['required'],
             'tanggal_lahir' => ['required'],
-            'kelurahan_desa' => ['required'],
-            'kecamatan' => ['required'],
+            'panjang_bayi' => ['required'],
+            'berat_bayi' => ['required'],
+            // 'kelurahan_desa' => ['required'],
+            // 'kecamatan' => ['required'],
         ];
 
         $validasi['file_surat_lahir'] = ['required', 'image', 'file', 'mimes:jpeg,png,jpg', 'max:5024'];
@@ -192,6 +192,8 @@ class KelahiranController extends Controller
             $validasi['file_kk_baru'] = ['required', 'file', 'mimes:pdf', 'max:5024'];
         }
 
+
+
         if ($request->file('file_akte_lahir')) {
             $validasi['file_akte_lahir'] = ['required', 'file', 'mimes:pdf', 'max:5024'];
         }
@@ -206,6 +208,10 @@ class KelahiranController extends Controller
 
         if ($request->file('file_akte_lahir')) {
             $validateData['file_akte_lahir'] = $request->file('file_akte_lahir')->store('file_akte_lahir');
+        }
+
+        if ($request->post('catatan_capil')) {
+            $validasi['catatan_capil'] = $request->post('catatan_capil');
         }
 
         if (auth()->user()->level == 2) {

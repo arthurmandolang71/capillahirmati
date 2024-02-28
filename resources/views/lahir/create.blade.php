@@ -50,92 +50,12 @@
                                     enctype="multipart/form-data">
                                     @csrf
 
-                                    <div class="mb-3">
-                                        <label class="text-label form-label" for="validationCustomUsername">*No.Kartu
-                                            Keluaraga</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text"> <i class="bi bi-card-heading"></i> </span>
-                                            <input name="no_kk" value="{{ old('no_kk') }}" type="text"
-                                                class="form-control @error('no_kk') is-invalid @enderror" id=""
-                                                placeholder="No. Kartu Keluaraga" />
-                                            @error('no_kk')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                        </div>
-                                    </div>
-
-                                    <div class="row ">
-
-                                        <div class="mb-3 col-md-4">
-                                            <label class="text-label form-label" for="validationCustomUsername">*Nama Ibu
-                                                Kandung</label>
-                                            <div class="input-group">
-                                                <span class="input-group-text"> <i class="bi bi-card-heading"></i> </span>
-                                                <input name="nama_ibu" value="{{ old('nama_ibu') }}" type="text"
-                                                    class="form-control @error('nama_ibu') is-invalid @enderror"
-                                                    id="validationCustomUsername" placeholder="Masukan nama Ibu Kandung">
-                                                @error('nama_ibu')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
-                                            </div>
-                                        </div>
-
-                                        <div class="mb-3 col-md-4">
-                                            <label class="text-label form-label" for="validationCustomUsername">
-                                                *Email</label>
-                                            <div class="input-group">
-                                                <span class="input-group-text"> <i class="bi bi-whatsapp"></i>
-                                                </span>
-                                                <input name="email" value="{{ old('email') }}" type="text"
-                                                    class="form-control @error('email') is-invalid @enderror"
-                                                    id="validationCustomUsername"
-                                                    placeholder="Masukan Email Aktif dari keluarga">
-                                                @error('email')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="mb-4 col-md-4">
-                                            <label class="text-label form-label" for="validationCustomUsername">*Anak Ke
-                                                ?</label>
-                                            <div class="input-group">
-                                                <select name="anak_ke"
-                                                    class="default-select form-control wide mb-3 @error('anak_ke') is-invalid @enderror">
-                                                    <option value="">Pilih</option>
-                                                    @foreach ($anak_ke as $item)
-                                                        @if (old('anak_ke') == $item)
-                                                            <option value="{{ $item }}" selected>
-                                                                {{ $item }}
-                                                            </option>
-                                                        @else
-                                                            <option value="{{ $item }}">
-                                                                {{ $item }}
-                                                            </option>
-                                                        @endif
-                                                    @endforeach
-                                                </select>
-                                                @error('anak_ke')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
-                                            </div>
-                                        </div>
-
-                                    </div>
-
                                     <div class="row ">
                                         <div class="mb-3 col-md-4">
                                             <label class="text-label form-label" for="validationCustomUsername">
-                                                *Nama Anak</label>
+                                                *Nama Bayi</label>
                                             <div class="input-group">
-                                                <span class="input-group-text"> <i class="bi bi-instagram"></i>
+                                                <span class="input-group-text"> <i class="bi bi-person-bounding-box"></i>
                                                 </span>
                                                 <input name="nama_anak" value="{{ old('nama_anak') }}" type="text"
                                                     class="form-control @error('nama_anak') is-invalid @enderror"
@@ -175,9 +95,9 @@
                                         </div>
                                         <div class="mb-3 col-md-4">
                                             <label class="text-label form-label" for="validationCustomUsername">
-                                                *Tanggal Lahir Anak</label>
+                                                *Tanggal Lahir Bayi</label>
                                             <div class="input-group">
-                                                <span class="input-group-text"> <i class="bi bi-instagram"></i>
+                                                <span class="input-group-text"> <i class="bi bi-calendar-check"></i>
                                                 </span>
                                                 <input name="tanggal_lahir" value="{{ old('tanggal_lahir') }}"
                                                     type="date"
@@ -191,44 +111,124 @@
                                         </div>
                                     </div>
 
-                                    <div class="row">
-                                        <div class="mb-6 col-md-6">
-                                            <label class="text-label form-label" for="validationCustomUsername">*Kecamatan
-                                                (alamat Kartu Keluarga)
-                                            </label>
+                                    <div class="row ">
+                                        <div class="mb-3 col-md-6">
+                                            <label class="text-label form-label" for="validationCustomUsername">*Berat
+                                                Bayi (satuan Kg.)</label>
                                             <div class="input-group">
-                                                <select name="kecamatan" id="kecamatan"
-                                                    class="default-select form-control wide mb-3 @error('kecamatan') is-invalid @enderror">
-                                                    <option value="">Pilih</option>
-                                                    @foreach ($kecamatan as $item)
-                                                        @if (old('kecamatan'))
-                                                            <option value="{{ $item->id }}" selected>
-                                                                {{ $item->nama }}
-                                                            </option>
-                                                        @else
-                                                            <option value="{{ $item->id }}">
-                                                                {{ $item->nama }}
-                                                            </option>
-                                                        @endif
-                                                    @endforeach
-                                                </select>
-                                                @error('kecamatan')
+                                                <span class="input-group-text"> <i class="bi bi-person-bounding-box"></i>
+                                                </span>
+                                                <input name="berat_bayi" value="{{ old('berat_bayi') }}" type="text"
+                                                    class="form-control @error('berat_bayi') is-invalid @enderror"
+                                                    id="validationCustomUsername" placeholder="Masukan Barat Berat Bayi">
+                                                @error('berat_bayi')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
                                                     </div>
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="mb-6 col-md-6">
-                                            <label class="form-label" for="multicol-country">*Kelurahan (alamat Kartu
-                                                Keluarga)</label>
-                                            <select id="kelurahan_desa" name="kelurahan_desa" class="form-select">
-                                                <option value="">Pilih</option>
-                                            </select>
+                                        <div class="mb-3 col-md-6">
+                                            <label class="text-label form-label" for="validationCustomUsername">*Panjang
+                                                Bayi (Satuan cm.)</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"> <i class="bi bi-person-bounding-box"></i>
+                                                </span>
+                                                <input name="panjang_bayi" value="{{ old('panjang_bayi') }}" type="text"
+                                                    class="form-control @error('panjang_bayi') is-invalid @enderror"
+                                                    id="validationCustomUsername" placeholder="Masukan Panjang Bayi">
+                                                @error('panjang_bayi')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row ">
+                                        <div class="mb-3 col-md-6">
+                                            <label class="text-label form-label" for="validationCustomUsername">*No.Kartu
+                                                Keluarga</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"> <i class="bi bi-card-list"></i> </span>
+                                                <input name="no_kk" value="{{ old('no_kk') }}" type="text"
+                                                    class="form-control @error('no_kk') is-invalid @enderror" id=""
+                                                    placeholder="No. Kartu Keluaraga" />
+                                                @error('no_kk')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 col-md-6">
+                                            <label class="text-label form-label" for="validationCustomUsername">
+                                                *Email</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"> <i class="bi bi-envelope"></i>
+                                                </span>
+                                                <input name="email" value="{{ old('email') }}" type="text"
+                                                    class="form-control @error('email') is-invalid @enderror"
+                                                    id="validationCustomUsername"
+                                                    placeholder="Masukan Email Aktif dari keluarga">
+                                                @error('email')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row ">
+                                        <div class="mb-3 col-md-6">
+                                            <label class="text-label form-label" for="validationCustomUsername">*Nama Ibu
+                                                Kandung</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"> <i class="bi bi-person-circle"></i>
+                                                </span>
+                                                <input name="nama_ibu" value="{{ old('nama_ibu') }}" type="text"
+                                                    class="form-control @error('nama_ibu') is-invalid @enderror"
+                                                    id="validationCustomUsername" placeholder="Masukan nama Ibu Kandung">
+                                                @error('nama_ibu')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="mb-4 col-md-6">
+                                            <label class="text-label form-label" for="validationCustomUsername">*Anak Ke
+                                                ?</label>
+                                            <div class="input-group">
+                                                <select name="anak_ke"
+                                                    class="default-select form-control wide mb-3 @error('anak_ke') is-invalid @enderror">
+                                                    <option value="">Pilih</option>
+                                                    @foreach ($anak_ke as $item)
+                                                        @if (old('anak_ke') == $item)
+                                                            <option value="{{ $item }}" selected>
+                                                                {{ $item }}
+                                                            </option>
+                                                        @else
+                                                            <option value="{{ $item }}">
+                                                                {{ $item }}
+                                                            </option>
+                                                        @endif
+                                                    @endforeach
+                                                </select>
+                                                @error('anak_ke')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
                                         </div>
                                     </div>
 
 
+
+                                    <hr><br>
                                     <div class="row ">
                                         <div class="mb-3 col-md-4">
                                             <label class="text-label form-label" for="validationCustomUsername">
@@ -290,26 +290,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        {{-- <div class="mb-3 col-md-3">
-                                            <label class="text-label form-label" for="validationCustomUsername">Foto
-                                                SPTJM Kelahiran (Khusus Kelurahan) </label>
-                                            <div class="input-group">
-                                                <div class="form-file">
-                                                    <input name="sptjm" type="file"
-                                                        class="form-file-input form-control @error('sptjm') is-invalid @enderror"
-                                                        id="image4" onchange="priviewImage4()">
-                                                </div>
-                                                <span class="input-group-text">Upload</span>
-                                                @error('sptjm')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
-                                                <div>
-                                                    <img class="img-preview4 img-fluid">
-                                                </div>
-                                            </div>
-                                        </div> --}}
+
                                     </div>
 
                                     <div class="mb-3 col-md-6">
@@ -335,6 +316,63 @@
     </div>
 @endSection
 
+{{-- <div class="row">
+                                        <div class="mb-6 col-md-6">
+                                            <label class="text-label form-label" for="validationCustomUsername">*Kecamatan
+                                                (alamat Kartu Keluarga)
+                                            </label>
+                                            <div class="input-group">
+                                                <select name="kecamatan" id="kecamatan"
+                                                    class="default-select form-control wide mb-3 @error('kecamatan') is-invalid @enderror">
+                                                    <option value="">Pilih</option>
+                                                    @foreach ($kecamatan as $item)
+                                                        @if (old('kecamatan'))
+                                                            <option value="{{ $item->id }}" selected>
+                                                                {{ $item->nama }}
+                                                            </option>
+                                                        @else
+                                                            <option value="{{ $item->id }}">
+                                                                {{ $item->nama }}
+                                                            </option>
+                                                        @endif
+                                                    @endforeach
+                                                </select>
+                                                @error('kecamatan')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="mb-6 col-md-6">
+                                            <label class="form-label" for="multicol-country">*Kelurahan (alamat Kartu
+                                                Keluarga)</label>
+                                            <select id="kelurahan_desa" name="kelurahan_desa" class="form-select">
+                                                <option value="">Pilih</option>
+                                            </select>
+                                        </div>
+                                    </div> --}}
+
+{{-- <div class="mb-3 col-md-3">
+                                            <label class="text-label form-label" for="validationCustomUsername">Foto
+                                                SPTJM Kelahiran (Khusus Kelurahan) </label>
+                                            <div class="input-group">
+                                                <div class="form-file">
+                                                    <input name="sptjm" type="file"
+                                                        class="form-file-input form-control @error('sptjm') is-invalid @enderror"
+                                                        id="image4" onchange="priviewImage4()">
+                                                </div>
+                                                <span class="input-group-text">Upload</span>
+                                                @error('sptjm')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                                <div>
+                                                    <img class="img-preview4 img-fluid">
+                                                </div>
+                                            </div>
+                                        </div> --}}
 
 @section('footer')
     <!-- Daterangepicker -->

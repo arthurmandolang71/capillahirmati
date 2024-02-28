@@ -63,6 +63,8 @@
                                         <span class="ti-xs ti ti-key me-1"></span>Ganti Password
                                     </button>
                                 </div>
+                                <hr>
+                                <br>
 
                             </form>
                         </div>

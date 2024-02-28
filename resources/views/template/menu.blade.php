@@ -4,9 +4,9 @@
             <li class="dropdown header-profile">
                 <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
                     @if (auth()->user()->foto_profil)
-                        <img src="assets/images/{{ auth()->user()->foto_profil }}" width="20" alt="" />
+                        <img src="{{ asset('') }}assets/images/{{ auth()->user()->foto_profil }}" />
                     @else
-                        <img src="{{ asset('') }}assets/images/avatar/1.png" width="20">
+                        <img src="{{ asset('') }}assets/images/avatar/1.png" />
                     @endif
                     <div class="header-info ms-3">
                         <span class="font-w600 ">Hi,<b>{{ auth()->user()->username }}</b></span>
@@ -49,14 +49,25 @@
 
             {{-- @can('isRsKelurahan') --}}
             <li>
+                <a href="/">
+                    <i class="bi bi-speedometer"></i>
+                    <span class="nav-text">Dashbord</span>
+                </a>
+
+            </li>
+            <li>
                 <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                     <i class="bi bi-basket3-fill"></i>
                     <span class="nav-text">Data Kelahiran</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="/kelahiran/create">Tambah</a></li>
-                    <li><a href='/kelahiran/'>Data</a></li>
-                    <li><a href='/download_file/kelahiran'>Download File</a></li>
+                    @if (auth()->user()->level == 1)
+                        <li><a href="/kelahiran/create">Tambah</a></li>
+                        <li><a href='/kelahiran/'>Data</a></li>
+                        <li><a href='/download_file/kelahiran'>Download File</a></li>
+                    @else
+                        <li><a href='/kelahiran/'>Data</a></li>
+                    @endif
                 </ul>
             </li>
             <li>

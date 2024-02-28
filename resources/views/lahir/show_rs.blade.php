@@ -37,94 +37,195 @@
 
                         <div class="card-body">
                             <form action="">
-                                <div class="row">
+
+                                <div class="row ">
                                     <div class="mb-3 col-md-4">
-                                        <label class="text-label form-label" for="validationCustomUsername">Kartu Keluarga
-                                        </label>
+                                        <label class="text-label form-label" for="validationCustomUsername">
+                                            *Nama Bayi</label>
                                         <div class="input-group">
-                                            <span class="input-group-text"> <i class="bi bi-card-heading"></i> </span>
-                                            <input value="{{ $aktelahir->no_kk }}" class="form-control" disabled>
+                                            <span class="input-group-text"> <i class="bi bi-person-bounding-box"></i>
+                                            </span>
+                                            <input name="nama_anak" value="{{ old('nama_anak', $aktelahir->nama_anak) }}"
+                                                type="text" class="form-control @error('nama_anak') is-invalid @enderror"
+                                                id="validationCustomUsername" disabled>
+                                            @error('nama_anak')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="mb-3 col-md-4">
-                                        <label class="text-label form-label" for="validationCustomUsername">Nama Ibu
+                                        <label class="text-label form-label" for="validationCustomUsername">
+                                            *Jenis Kelamin</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"> <i class="bi bi-person-bounding-box"></i>
+                                            </span>
+                                            <input name="jenis_kelamin"
+                                                value="{{ old('jenis_kelamin', $aktelahir->jenis_kelamin) }}" type="text"
+                                                class="form-control @error('jenis_kelamin') is-invalid @enderror"
+                                                id="validationCustomUsername" disabled>
+                                            @error('jenis_kelamin')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 col-md-4">
+                                        <label class="text-label form-label" for="validationCustomUsername">
+                                            *Tanggal Lahir Bayi</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"> <i class="bi bi-calendar-check"></i>
+                                            </span>
+                                            <input name="tanggal_lahir"
+                                                value="{{ old('tanggal_lahir', $aktelahir->tanggal_lahir) }}" type="date"
+                                                class="form-control @error('tanggal_lahir') is-invalid @enderror" disabled>
+                                            @error('tanggal_lahir')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row ">
+                                    <div class="mb-3 col-md-6">
+                                        <label class="text-label form-label" for="validationCustomUsername">*Berat
+                                            Bayi (satuan Kg.)</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"> <i class="bi bi-person-bounding-box"></i>
+                                            </span>
+                                            <input name="berat_bayi"
+                                                value="{{ old('berat_bayi', $aktelahir->berat_bayi) }}" type="text"
+                                                class="form-control @error('berat_bayi') is-invalid @enderror"
+                                                id="validationCustomUsername" placeholder="Masukan Barat Berat Bayi"
+                                                disabled>
+                                            @error('berat_bayi')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 col-md-6">
+                                        <label class="text-label form-label" for="validationCustomUsername">*Panjang
+                                            Bayi (Satuan cm.)</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"> <i class="bi bi-person-bounding-box"></i>
+                                            </span>
+                                            <input name="panjang_bayi"
+                                                value="{{ old('panjang_bayi', $aktelahir->panjang_bayi) }}" type="text"
+                                                class="form-control @error('panjang_bayi') is-invalid @enderror"
+                                                id="validationCustomUsername" placeholder="Masukan Panjang Bayi" disabled>
+                                            @error('panjang_bayi')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row bg bg-light">
+
+                                    <div class="mb-3 col-md-6 ">
+                                        <label class="text-label form-label" for="validationCustomUsername"><b>*No.Kartu
+                                                Keluarga</b></label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"> <i class="bi bi-card-list"></i> </span>
+                                            <input name="no_kk" value="{{ old('no_kk', $aktelahir->no_kk) }}"
+                                                type="text" class="form-control @error('no_kk') is-invalid @enderror"
+                                                id="" placeholder="No. Kartu Keluaraga" disabled />
+                                            @error('no_kk')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                        <br>
+                                    </div>
+                                    <div class="mb-3 col-md-6">
+                                        <label class="text-label form-label" for="validationCustomUsername">
+                                            <b>*Email</b></label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"> <i class="bi bi-envelope"></i>
+                                            </span>
+                                            <input name="email" value="{{ old('email', $aktelahir->email) }}"
+                                                type="text" class="form-control @error('email') is-invalid @enderror"
+                                                id="validationCustomUsername"
+                                                placeholder="Masukan Email Aktif dari keluarga" disabled>
+                                            @error('email')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row bg bg-light">
+                                    <div class="mb-3 col-md-6">
+                                        <label class="text-label form-label" for="validationCustomUsername">*Nama Ibu
                                             Kandung</label>
                                         <div class="input-group">
-                                            <input value="{{ $aktelahir->nama_anak }}" class="form-control" disabled>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3 col-md-4">
-                                        <label class="text-label form-label" for="validationCustomUsername">Email</label>
-                                        <div class="input-group">
-                                            <input value="{{ $aktelahir->email }}" class="form-control" disabled>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="row">
-                                    <div class="mb-3 col-md-4">
-                                        <label class="text-label form-label" for="validationCustomUsername">Nama
-                                            Bayi</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text"> <i class="bi bi-card-heading"></i> </span>
-                                            <input value="{{ $aktelahir->nama_anak }}" class="form-control" disabled>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3 col-md-4">
-                                        <label class="text-label form-label" for="validationCustomUsername">Jenis Kelamin
-                                        </label>
-                                        <div class="input-group">
-                                            <span class="input-group-text"> <i class="bi bi-card-heading"></i> </span>
-                                            <input value="{{ $aktelahir->jenis_kelamin }}" class="form-control" disabled>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3 col-md-4">
-                                        <label class="text-label form-label" for="validationCustomUsername">Tanggal Lahir
-                                        </label>
-                                        <div class="input-group">
-                                            <span class="input-group-text"> <i class="bi bi-card-heading"></i> </span>
-                                            <input value="{{ $aktelahir->tanggal_lahir }}" class="form-control" disabled>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="row">
-                                    <div class="mb-3 col-md-6">
-                                        <label class="text-label form-label"
-                                            for="validationCustomUsername">Kecamatan</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text"> <i class="bi bi-card-heading"></i> </span>
-                                            <input value="{{ $aktelahir->kecamatan_ref->nama ?? '' }}" class="form-control"
+                                            <span class="input-group-text"> <i class="bi bi-person-circle"></i>
+                                            </span>
+                                            <input name="nama_ibu" value="{{ old('nama_ibu', $aktelahir->nama_ibu) }}"
+                                                type="text"
+                                                class="form-control @error('nama_ibu') is-invalid @enderror"
+                                                id="validationCustomUsername" placeholder="Masukan nama Ibu Kandung"
                                                 disabled>
+                                            @error('nama_ibu')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="mb-3 col-md-6">
-                                        <label class="text-label form-label"
-                                            for="validationCustomUsername">Kelurahan/Desa</label>
+                                        <label class="text-label form-label" for="validationCustomUsername">
+                                            *Anak Ke</label>
                                         <div class="input-group">
-                                            <span class="input-group-text"> <i class="bi bi-card-heading"></i> </span>
-                                            <input value="{{ $aktelahir->kelurahan_ref->nama ?? '' }}" class="form-control"
-                                                disabled>
+                                            <span class="input-group-text"> <i class="bi bi-person-bounding-box"></i>
+                                            </span>
+                                            <input name="anak_ke" value="{{ old('anak_ke', $aktelahir->anak_ke) }}"
+                                                type="text" class="form-control @error('anak_ke') is-invalid @enderror"
+                                                id="validationCustomUsername" disabled>
+                                            @error('anak_ke')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
+
                                 <hr>
                                 <div class="row">
                                     <div class="mb-3 col-md-4">
                                         <p class="text-center"> Surat Keterangan Lahir : </p>
-                                        <img src="{{ asset('storage/' . $aktelahir->file_surat_lahir) }}" alt=""
-                                            width="300px">
+                                        <a href="{{ asset('storage/' . $aktelahir->file_surat_lahir) }}"
+                                            target="_blank"><img
+                                                src="{{ asset('storage/' . $aktelahir->file_surat_lahir) }}"
+                                                alt="" width="300px">
+                                        </a>
                                     </div>
                                     <div class="mb-3 col-md-4">
                                         <p class="text-center"> Kartu Keluaraga :</p>
-                                        <img src="{{ asset('storage/' . $aktelahir->file_kartu_keluarga) }}"
-                                            alt="" width="300px">
+                                        <a href="{{ asset('storage/' . $aktelahir->file_kartu_keluarga) }}"
+                                            target="_blank">
+                                            <img src="{{ asset('storage/' . $aktelahir->file_kartu_keluarga) }}"
+                                                alt="" width="300px">
+                                        </a>
                                     </div>
                                     <div class="mb-3 col-md-4">
                                         <p class="text-center"> Akte Nikah :</p>
-                                        <img src="{{ asset('storage/' . $aktelahir->file_akte_nikah) }}" alt=""
-                                            width="300px">
+                                        <a href="{{ asset('storage/' . $aktelahir->file_akte_nikah) }}" target="_blank">
+                                            <img src="{{ asset('storage/' . $aktelahir->file_akte_nikah) }}"
+                                                alt="" width="300px">
+                                        </a>
                                     </div>
                                 </div>
                                 <hr>
@@ -160,8 +261,8 @@
                             </form>
                         </div>
                         <!--**********************************
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                content start
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ***********************************-->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            content start
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ***********************************-->
                     </div>
                 </div>
             </div>
