@@ -15,25 +15,7 @@ class KelahiranController extends Controller
      */
     public function index(Request $request)
     {
-        if (request('kecamatan') != '') {
-            $get_kecamatan = Kecamatan::firstWhere('id', request('kecamatan'));
-            $select_kecamatan = [
-                'id' => $get_kecamatan->id,
-                'nama' => $get_kecamatan->nama,
-            ];
-        } else {
-            $select_kecamatan = Kecamatan::where('kode_kec', 7171)->get();
-        }
 
-        if (request('kelurahandesa') != '') {
-            $get_kelurahandesa = KelurahanDesa::firstWhere('id', request('kelurahandesa'));
-            $select_kelurahandesa = [
-                'id' => $get_kelurahandesa->id,
-                'nama' => $get_kelurahandesa->nama,
-            ];
-        } else {
-            $select_kelurahandesa = NULL;
-        }
 
         if (request('cari_nama') != '') {
             $cari_nama = request('cari_nama');
@@ -52,14 +34,23 @@ class KelahiranController extends Controller
             $aktelahir->where('status_akte', 3);
         }
 
-        // dd($aktelahir->get());
+        // $total_berkas = $aktelahir->count();
+        // $total_berkas_capil = $aktelahir->where('status_akte', 3)->count();
+        // $total_berkas_bpjs = $aktelahir->where('status_bpjs', 1)->count();
+        // $total_berkas_dinsos = $aktelahir->where('status_dinsos', 1)->count();
+
+        // dd($aktelahir->orderBy('tanggal_lahir', 'asc')->get());
 
         return view('lahir.index', [
             'title' => 'Data Kelahiran',
-            'select_kecamatan' => $select_kecamatan,
-            'select_kelurahandesa' => $select_kelurahandesa,
-            'cari_nama' => $cari_nama,
+            // 'select_kecamatan' => $select_kecamatan,
+            // 'select_kelurahandesa' => $select_kelurahandesa,
+            // 'cari_nama' => $cari_nama,
             'aktelahir' => $aktelahir->orderBy('tanggal_lahir', 'asc')->get(),
+            'total_berkas' => $aktelahir->count(),
+            'total_capil' =>  $aktelahir->where('status_akte', 3)->count(),
+            'total_bpjs' => $aktelahir->where('status_bpjs', 1)->count(),
+            'total_dinsos' => $aktelahir->where('status_dinsos', 1)->count(),
         ]);
     }
 
@@ -192,8 +183,6 @@ class KelahiranController extends Controller
             $validasi['file_kk_baru'] = ['required', 'file', 'mimes:pdf', 'max:5024'];
         }
 
-
-
         if ($request->file('file_akte_lahir')) {
             $validasi['file_akte_lahir'] = ['required', 'file', 'mimes:pdf', 'max:5024'];
         }
@@ -275,8 +264,6 @@ class KelahiranController extends Controller
             $validateData['status_akte'] = 1;
         }
 
-
-
         // dd($validateData);
 
         AkteLahir::where(
@@ -307,5 +294,25 @@ class KelahiranController extends Controller
     //         ->get();
     //     // $data['data'] = $wilayah_id;
     //     return response()->json($data);
+    // }
+
+    // if (request('kecamatan') != '') {
+    //     $get_kecamatan = Kecamatan::firstWhere('id', request('kecamatan'));
+    //     $select_kecamatan = [
+    //         'id' => $get_kecamatan->id,
+    //         'nama' => $get_kecamatan->nama,
+    //     ];
+    // } else {
+    //     $select_kecamatan = Kecamatan::where('kode_kec', 7171)->get();
+    // }
+
+    // if (request('kelurahandesa') != '') {
+    //     $get_kelurahandesa = KelurahanDesa::firstWhere('id', request('kelurahandesa'));
+    //     $select_kelurahandesa = [
+    //         'id' => $get_kelurahandesa->id,
+    //         'nama' => $get_kelurahandesa->nama,
+    //     ];
+    // } else {
+    //     $select_kelurahandesa = NULL;
     // }
 }

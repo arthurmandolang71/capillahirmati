@@ -31,55 +31,80 @@
                         <!--********************************** content start ***********************************-->
 
                         <div class="card-body">
+                            @php
+                                if ($total_capil) {
+                                    $persen_capil = ($total_capil / $total_berkas) * 100;
+                                }
+                                if ($total_bpjs) {
+                                    $persen_bpjs = ($total_bpjs / $total_capil) * 100;
+                                }
+                                if ($total_dinsos) {
+                                    $persen_dinsos = ($total_dinsos / $total_capil) * 100;
+                                }
+                            @endphp
 
-                            <!-- start content -->
-                            {{-- <div class="container">
-                                <form action="/" method="get">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label class="form-label" for="multicol-country">Kecamatan</label>
-                                            <select id="kecamatan" name="kecamatan" class="select2 form-select"
-                                                data-allow-clear="true">
-                                                @if ($select_kecamatan)
-                                                    <option value="{{ $select_kecamatan['id'] }}"> Pencarian
-                                                        {{ $select_kecamatan['nama'] }}</option>
-                                                @endif
-                                                <option value="">Pilih</option>
-                                            </select>
-                                            <hr>
+                            @if (auth()->user()->level == 2)
+                                <div class="card-body col-md-5">
+                                    <h4 class="card-title">Akte yang diterbikan Disdukcapil</h4>
+                                    <div class="d-flex align-items-center">
+
+                                        <div class="me-auto">
+                                            <div class="progress mt-8" style="height:10px;">
+                                                <div class="progress-bar bg-success progress-animated"
+                                                    style="width: {{ $persen_capil ?? null }}%; height:10px;"
+                                                    role="progressbar">
+                                                </div>
+                                            </div>
+                                            <p class="fs-16 mb-0 mt-2"><span class="text-info">{{ $persen_capil ?? null }}%
+                                                    dari total pengajuan stakholder (Rumah Sakit/Kelurahan)</span>
+                                            </p>
                                         </div>
-                                        <div class="col-md-6">
-                                            <label class="form-label" for="multicol-country">Kelurahan</label>
-                                            <select id="kelurahandesa" name="kelurahandesa" class="select2 form-select"
-                                                data-allow-clear="true">
-                                                @if ($select_kelurahandesa)
-                                                    <option value="{{ $select_kelurahandesa['id'] }}"> Pencarian
-                                                        {{ $select_kelurahandesa['nama'] }}</option>
-                                                @endif
-                                                <option value="">Pilih</option>
-                                            </select>
-                                            <hr>
-                                        </div>
-                                        <div class="col-md-8">
-                                            <label class="form-label" for="multicol-country">Nama</label>
-                                            @if ($cari_nama)
-                                                <input type="text" name="cari_nama" id="nama" class="form-control"
-                                                    placeholder="John" value="{{ $cari_nama }}" />
-                                            @else
-                                                <input type="text" name="cari_nama" id="nama" class="form-control"
-                                                    placeholder="Masukan pencarian nama/marga" value="" />
-                                            @endif
-                                            <hr>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <button type="submit" href="/dpt/create"
-                                                class="btn btn-block btn-primary"><span
-                                                    class="btn-icon-start text-primary"><i class="fa fa-search"></i>
-                                                </span>Cari!</button>
-                                        </div>
+                                        <h2 class="fs-38">{{ $total_capil ?? null }}</h2>
                                     </div>
-                                </form>
-                            </div> --}}
+                                </div>
+                            @endif
+
+                            @if (auth()->user()->level == 3)
+                                <div class="card-body col-md-5">
+                                    <h4 class="card-title">Berkas yang ditanggapi BPJS</h4>
+                                    <div class="d-flex align-items-center">
+
+                                        <div class="me-auto">
+                                            <div class="progress mt-8" style="height:10px;">
+                                                <div class="progress-bar bg-success progress-animated"
+                                                    style="width: {{ $persen_bpjs ?? null }}%; height:10px;"
+                                                    role="progressbar">
+                                                </div>
+                                            </div>
+                                            <p class="fs-16 mb-0 mt-2"><span class="text-info">{{ $persen_capil ?? null }}%
+                                                    dari total pengajuan stakholder (Rumah Sakit/Kelurahan)</span>
+                                            </p>
+                                        </div>
+                                        <h2 class="fs-38">{{ $total_bpjs ?? null }}</h2>
+                                    </div>
+                                </div>
+                            @endif
+
+                            @if (auth()->user()->level == 4)
+                                <div class="card-body col-md-5">
+                                    <h4 class="card-title">Berkas yang ditanggapi Dinas Sosial</h4>
+                                    <div class="d-flex align-items-center">
+
+                                        <div class="me-auto">
+                                            <div class="progress mt-8" style="height:10px;">
+                                                <div class="progress-bar bg-success progress-animated"
+                                                    style="width: {{ $persen_dinsos ?? null }}%; height:10px;"
+                                                    role="progressbar">
+                                                </div>
+                                            </div>
+                                            <p class="fs-16 mb-0 mt-2"><span class="text-info">{{ $persen_dinsos ?? null }}%
+                                                    dari total pengajuan stakholder (Rumah Sakit/Kelurahan)</span>
+                                            </p>
+                                        </div>
+                                        <h2 class="fs-38">{{ $total_dinsos ?? null }}</h2>
+                                    </div>
+                                </div>
+                            @endif
 
                             <div class="table-responsive">
                                 <table id="example" class="table table-striped display" style="width:100%">

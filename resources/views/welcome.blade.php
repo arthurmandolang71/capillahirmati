@@ -67,7 +67,6 @@
                         if ($total_dinsos) {
                             $persen_dinsos = ($total_dinsos / $total_capil) * 100;
                         }
-
                     @endphp
                     <div class="col-md-6">
                         <div class="card">
