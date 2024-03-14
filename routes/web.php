@@ -65,7 +65,7 @@ Route::controller(ProfilController::class)->middleware('auth')->group(function (
     Route::put('/profil/{user}', 'update');
 });
 
-Route::resource('/pengguna', PenggunaController::class)->middleware('isAdmin')->except(['show'])->parameters([
+Route::resource('/pengguna', PenggunaController::class)->middleware('auth')->except(['show'])->parameters([
     'user' => 'user',
 ]);
 
