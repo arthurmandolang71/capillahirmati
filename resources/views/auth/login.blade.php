@@ -33,9 +33,8 @@
                             <div class="col-xl-12">
                                 <div class="auth-form">
                                     <div class="text-center mb-3">
-                                        <a href="index.html"><img
-                                                src="{{ asset('') }}assets/images/logosementara.png" width="100"
-                                                alt=""></a>
+                                        <a href="index.html"><img src="{{ asset('') }}assets/images/paarsel.png"
+                                                width="400" alt=""></a>
                                     </div>
 
                                     <h4 class="text-center mb-4">Login dengan akun anda</h4>
