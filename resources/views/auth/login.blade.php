@@ -13,14 +13,11 @@
     <meta property="og:description" content="Capil Manado" />
     <meta property="og:image" content="{{ asset('') }}assets/images/logosementara.png" />
     <meta name="format-detection" content="telephone=no">
-
     <!-- PAGE TITLE HERE -->
-    <title>Capil Lahir Mati Sempurna</title>
-
+    <title>Capil Hub</title>
     <!-- FAVICONS ICON -->
     <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
     <link href="{{ asset('') }}assets/css/style.css" rel="stylesheet">
-
 </head>
 
 <body class="vh-100">
@@ -33,11 +30,12 @@
                             <div class="col-xl-12">
                                 <div class="auth-form">
                                     <div class="text-center mb-3">
-                                        <a href="index.html"><img src="{{ asset('') }}assets/images/paarsel.png"
+                                        <a href="index.html"><img
+                                                src="{{ asset('') }}assets/images/capilhubsementara.png"
                                                 width="400" alt=""></a>
                                     </div>
 
-                                    <h4 class="text-center mb-4">Login dengan akun anda</h4>
+                                    {{-- <h4 class="text-center mb-4">Login dengan akun anda</h4> --}}
                                     @if (session()->has('pesan'))
                                         <div class="container text-center">
                                             <div class="alert alert-danger alert-dismissible" role="alert">

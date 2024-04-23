@@ -2,8 +2,14 @@
 
 namespace App\Http;
 
-use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use App\Http\Middleware\IsPN;
+use App\Http\Middleware\IsBpjs;
 use App\Http\Middleware\isAdmin;
+use App\Http\Middleware\IsCapil;
+use App\Http\Middleware\IsDinsos;
+use App\Http\Middleware\IsPaarsel;
+use App\Http\Middleware\IsRsKelurahan;
+use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
 {
@@ -65,6 +71,12 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'isAdmin' => isAdmin::class
+        'IsAdmin' => IsAdmin::class,
+        // 'IsBpjs' => IsBpjs::class,
+        // 'IsRsKelurahan' => IsRsKelurahan::class,
+        // 'IsDinsos' => IsDinsos::class,
+        // 'IsCapil' => IsCapil::class,
+        // 'IsPN' => IsPN::class,
+        'IsPaarsel' => IsPaarsel::class,
     ];
 }

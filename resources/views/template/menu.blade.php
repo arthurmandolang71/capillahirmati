@@ -50,27 +50,30 @@
             {{-- @can('isRsKelurahan') --}}
             <li>
                 <a href="/">
-                    <i class="bi bi-speedometer"></i>
-                    <span class="nav-text">Dashbord</span>
+                    <i class="bi bi-house"></i>
+                    <span class="nav-text">Weelcome</span>
                 </a>
+            </li>
 
-            </li>
-            <li>
-                <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                    <i class="bi bi-basket3-fill"></i>
-                    <span class="nav-text">Data Kelahiran</span>
-                </a>
-                <ul aria-expanded="false">
-                    @if (auth()->user()->level == 1)
-                        <li><a href="/kelahiran/create">Tambah</a></li>
-                        <li><a href='/kelahiran/'>Data</a></li>
-                        <li><a href='/download_file/kelahiran'>Download File</a></li>
-                    @else
-                        <li><a href='/kelahiran/'>Data</a></li>
-                    @endif
-                </ul>
-            </li>
-            <li>
+            @can('isPaarsel')
+                <li>
+                    <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                        <i class="bi bi-basket3-fill"></i>
+                        <span class="nav-text">Paarsel</span>
+                    </a>
+                    <ul aria-expanded="false">
+                        <li><a href='/kelahiran/dash'>Dashboard</a></li>
+                        @if (auth()->user()->level == 1)
+                            <li><a href="/kelahiran/create">Tambah</a></li>
+                            <li><a href='/kelahiran/'>Data</a></li>
+                            <li><a href='/download_file/kelahiran'>Download File</a></li>
+                        @else
+                            <li><a href='/kelahiran/'>Data</a></li>
+                        @endif
+                    </ul>
+                </li>
+            @endcan
+            {{-- <li>
                 <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                     <i class="bi bi-bookmark-dash-fill"></i>
                     <span class="nav-text">Data Kematian</span>
@@ -80,7 +83,7 @@
                     <li><a href='#'>Data</a></li>
                     <li><a href='#'>Download File</a></li>
                 </ul>
-            </li>
+            </li> --}}
 
             @can('isAdmin')
                 <li>

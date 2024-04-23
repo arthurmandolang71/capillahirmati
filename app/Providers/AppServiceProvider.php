@@ -25,20 +25,15 @@ class AppServiceProvider extends ServiceProvider
         //
         Paginator::useBootstrapFive();
 
-        Gate::define('isRsKelurahan', function (User $user) {
-            return $user->level == 1;
+        Gate::define('isPaarsel', function (User $user) {
+            return $user->level == 1 or $user->level == 2
+                or $user->level == 3
+                or $user->level == 4
+                or $user->level == 10;
         });
 
-        Gate::define('isCapil', function (User $user) {
-            return $user->level == 2;
-        });
-
-        Gate::define('isBpjs', function (User $user) {
-            return $user->level == 3;
-        });
-
-        Gate::define('isDinsos', function (User $user) {
-            return $user->level == 4;
+        Gate::define('isPN', function (User $user) {
+            return $user->level == 5;
         });
 
         Gate::define('isAdmin', function (User $user) {

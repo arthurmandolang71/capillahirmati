@@ -27,27 +27,8 @@ Route::redirect('/home', '/welcome');
 Route::get(
     '/welcome',
     function () {
-
-        if (auth()->user()->level == 1) {
-            $akte_lahir = AkteLahir::where('user_id', auth()->user()->id);
-        } else {
-            $akte_lahir = AkteLahir::all();
-        }
-
-
-        $total_berkas = $akte_lahir->count();
-        $total_berkas_capil = $akte_lahir->where('status_akte', 3)->count();
-        $total_berkas_bpjs = $akte_lahir->where('status_bpjs', 1)->count();
-        $total_berkas_dinsos = $akte_lahir->where('status_dinsos', 1)->count();
-
-        // dd($total_berkas_capil);
-
         return view('welcome', [
             'title' => 'Welcome',
-            'total_berkas' => $total_berkas,
-            'total_capil' => $total_berkas_capil,
-            'total_bpjs' => $total_berkas_bpjs,
-            'total_dinsos' => $total_berkas_dinsos,
         ]);
     }
 
@@ -69,8 +50,8 @@ Route::resource('/pengguna', PenggunaController::class)->middleware('auth')->exc
     'user' => 'user',
 ]);
 
-Route::controller(KelahiranController::class)->middleware('auth')->group(function () {
-    Route::get('/kelahiran/dash', 'dashboard');
+Route::controller(KelahiranController::class)->middleware(['IsPaarsel'])->group(function () {
+    Route::get('/kelahiran/dash', 'dash');
     Route::get('/kelahiran', 'index');
     Route::get('/kelahiran/show_rs/{id}', 'show_rs');
 
