@@ -22,6 +22,7 @@ class IsPN
 
         if (
             Auth::user()->level == 5
+            or Auth::user()->level == 2
             or Auth::user()->level == 10
         ) {
         } else {

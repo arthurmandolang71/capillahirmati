@@ -33,7 +33,9 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Gate::define('isPN', function (User $user) {
-            return $user->level == 5;
+            return $user->level == 2
+                or $user->level == 5
+                or $user->level == 10;
         });
 
         Gate::define('isAdmin', function (User $user) {

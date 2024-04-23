@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Stakeholder;
 use App\Models\User;
 use App\Models\UserLevel;
 use Illuminate\Http\Request;
@@ -28,12 +29,11 @@ class PenggunaController extends Controller
      */
     public function create()
     {
-        $level = UserLevel::where('id', '<', 10);
+        $katagori = Stakeholder::all();
 
         return view('pengguna.create', [
             'title' => 'Tambah Stakoholder',
-            'kategori' => ['Rumah Sakit', 'Puskesmas', 'Klinik', 'Kelurahan'],
-            'level' => $level,
+            'katagori' => $katagori,
         ]);
     }
 
@@ -48,13 +48,14 @@ class PenggunaController extends Controller
             'username' => ['required', 'unique:users', 'min:6'],
             'password' => ['required', 'min:6'],
             'no_wa' => ['required'],
+            'katagori' => ['required'],
         ];
 
         $validateData = $request->validate($validasi);
 
         $validateData['active'] = 1;
-        $validateData['level'] = 1;
-        $validateData['foto_profil'] = 'defaul_user.jpg';
+        $validateData['level'] = $validateData['katagori'];
+        $validateData['foto_profil'] = 'default_user.jpg';
         $validateData['foto_banner'] = 'foto_banner.jpg';
         $validateData['password'] = Hash::make($validateData['password']);
 

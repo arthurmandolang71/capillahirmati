@@ -30,11 +30,8 @@
                                     </svg>
                                 </span>
                                 <div>
-                                    <h3 class="text-white">Selamat Datang di Aplikasi [nama] </h3>
-                                    <p>Aplikasi ini merupakan insiatif dari beberapa stakholder mulai dari Dinas DUkcapil,
-                                        Dinas Kesehatan, Dinas Sosial, BPJS dan seleuruh Rumah Sakit/Puskesmas/Klinik
-                                        diWilayah Kota Manado untuk mempercepat proses kepastian indentitas Kelahiran dan
-                                        Kematians</p>
+                                    <h3 class="text-white">Selamat Datang di Capil-Hub </h3>
+                                    <p>Capil Hub merupakan tindak lanjut dari semua kerja sama lintas instansi</p>
                                     {{-- <a class="text-white" href="javascript:void(0);">Learn more >></a> --}}
                                 </div>
                             </div>

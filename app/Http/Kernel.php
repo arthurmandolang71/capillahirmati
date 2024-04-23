@@ -78,5 +78,6 @@ class Kernel extends HttpKernel
         // 'IsCapil' => IsCapil::class,
         // 'IsPN' => IsPN::class,
         'IsPaarsel' => IsPaarsel::class,
+        'IsPN' => IsPN::class,
     ];
 }

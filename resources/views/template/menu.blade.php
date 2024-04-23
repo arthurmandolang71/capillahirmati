@@ -73,6 +73,23 @@
                     </ul>
                 </li>
             @endcan
+            @can('isPN')
+                <li>
+                    <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                        <i class="bi bi-file-earmark-fill"></i>
+                        <span class="nav-text">PN Manado</span>
+                    </a>
+                    <ul aria-expanded="false">
+                        <li><a href='/kelahiran/dash'>Dashboard</a></li>
+                        @if (auth()->user()->level == 2)
+                            <li><a href="/kelahiran/create">Tambah</a></li>
+                            <li><a href='/kelahiran/'>Data</a></li>
+                        @else
+                            <li><a href='/kelahiran/'>Data</a></li>
+                        @endif
+                    </ul>
+                </li>
+            @endcan
             {{-- <li>
                 <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                     <i class="bi bi-bookmark-dash-fill"></i>
