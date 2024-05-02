@@ -80,27 +80,16 @@
                         <span class="nav-text">PN Manado</span>
                     </a>
                     <ul aria-expanded="false">
-                        <li><a href='/kelahiran/dash'>Dashboard</a></li>
+                        <li><a href='/perkara/dash'>Dashboard</a></li>
                         @if (auth()->user()->level == 2)
-                            <li><a href="/kelahiran/create">Tambah</a></li>
-                            <li><a href='/kelahiran/'>Data</a></li>
+                            <li><a href="/perkara/create">Tambah</a></li>
+                            <li><a href='/perkara/'>Data</a></li>
                         @else
-                            <li><a href='/kelahiran/'>Data</a></li>
+                            <li><a href='/perkara/'>Data</a></li>
                         @endif
                     </ul>
                 </li>
             @endcan
-            {{-- <li>
-                <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                    <i class="bi bi-bookmark-dash-fill"></i>
-                    <span class="nav-text">Data Kematian</span>
-                </a>
-                <ul aria-expanded="false">
-                    <li><a href="#">Tambah</a></li>
-                    <li><a href='#'>Data</a></li>
-                    <li><a href='#'>Download File</a></li>
-                </ul>
-            </li> --}}
 
             @can('isAdmin')
                 <li>

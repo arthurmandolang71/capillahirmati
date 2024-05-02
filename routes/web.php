@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\KelahiranController;
 use App\Http\Controllers\DownloadFileController;
+use App\Http\Controllers\PerkaraControoller;
 use App\Models\AkteLahir;
 use App\Models\AkteMati;
 
@@ -69,4 +70,20 @@ Route::controller(KelahiranController::class)->middleware(['IsPaarsel'])->group(
 Route::controller(DownloadFileController::class)->middleware('auth')->group(function () {
     Route::get('/download_file/kelahiran', 'lahir');
     Route::get('/download_file/kematian', 'mati');
+});
+
+Route::controller(PerkaraControoller::class)->middleware(['IsPN'])->group(function () {
+    Route::get('/perkara/dash', 'dash');
+    Route::get('/perkara', 'index');
+    Route::get('/perkara/show_rs/{id}', 'show');
+
+    Route::get('/perkara/create/', 'create');
+    Route::get('/perkara/{id}/edit', 'edit');
+
+    Route::post('/perkara', 'store');
+    Route::put('/perkara/{id}', 'update');
+
+    // Route::delete('/kelahiran/{id}', 'destroy');
+
+    Route::get('/get_kelurahandesa/kelahiran/{id}', 'getKelurahanDesa');
 });

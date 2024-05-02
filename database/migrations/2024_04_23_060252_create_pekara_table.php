@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('tanggal')->nullable();
             $table->string('katagori')->nullable();
             $table->string('file_cover')->nullable();
-            $table->integer('status')->nullable();
+            $table->text('penjelasan')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

@@ -4,6 +4,7 @@
     {{-- <link rel="stylesheet" href="{{ asset('') }}assets/vendor/datatables/css/jquery.dataTables.min.css"> --}}
 @endSection
 
+
 @section('content')
     <div class="content-body">
         <div class="container-fluid">
@@ -38,6 +39,52 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="row">
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="card progress-card">
+                            <div class="card-body d-flex">
+                                <div class="me-auto">
+                                    <h4 class="card-title">Total Pengajuan Konfirmasi </h4>
+                                    <div class="d-flex align-items-center">
+                                        <h2 class="fs-24 mb-0">{{ $total_perkara }} <small>Perkara </small></h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @php
+                        if ($total_perkara) {
+                            $persen_pn = ($total_perkara_konfirmasi / $total_perkara) * 100;
+                        }
+                    @endphp
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Perkara yang di konfirmasi oleh PN Manado</h4>
+                                <div class="d-flex align-items-center">
+
+                                    <div class="me-auto">
+                                        <div class="progress mt-8" style="height:10px;">
+                                            <div class="progress-bar bg-success progress-animated"
+                                                style="width: {{ $persen_pn ?? null }}%; height:10px;" role="progressbar">
+                                            </div>
+                                        </div>
+                                        <p class="fs-16 mb-0 mt-2"><span class="text-info">{{ $persen_pn ?? null }}%
+                                                dari total pengajuan konfirmasi Disdukcapil Manado</span>
+                                        </p>
+                                    </div>
+                                    <h2 class="fs-38">{{ $total_perkara_konfirmasi ?? null }}</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
         </div>
     </div>
