@@ -15,7 +15,7 @@
                 fill="#5BCFC5" />
         </svg> --}}
 
-        <img src="{{ asset('') }}assets/images/pemkot.png" class="logo-abbr" width="70" height="53"
+        <img src="{{ asset('') }}assets/images/panci.png" class="logo-abbr" width="70" height="53"
             viewBox="0 0 53 53">
 
         {{-- <svg class="brand-title" width="124px" height="33px">

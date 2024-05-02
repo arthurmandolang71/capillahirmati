@@ -7,8 +7,8 @@ use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\KelahiranController;
 use App\Http\Controllers\DownloadFileController;
 use App\Http\Controllers\PerkaraControoller;
-use App\Models\AkteLahir;
-use App\Models\AkteMati;
+use App\Http\Controllers\PutusanPnController;
+use App\Models\PutusanPn;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,8 +82,16 @@ Route::controller(PerkaraControoller::class)->middleware(['IsPN'])->group(functi
 
     Route::post('/perkara', 'store');
     Route::put('/perkara/{id}', 'update');
+});
 
-    // Route::delete('/kelahiran/{id}', 'destroy');
+Route::controller(PutusanPnController::class)->middleware(['IsPN'])->group(function () {
+    Route::get('/putusanpn/dash', 'dash');
+    Route::get('/putusanpn', 'index');
+    Route::get('/putusanpn/show_rs/{id}', 'show');
 
-    Route::get('/get_kelurahandesa/kelahiran/{id}', 'getKelurahanDesa');
+    Route::get('/putusanpn/create/', 'create');
+    Route::get('/putusanpn/{id}/edit', 'edit');
+
+    Route::post('/putusanpn', 'store');
+    Route::put('/putusanpn/{id}', 'update');
 });

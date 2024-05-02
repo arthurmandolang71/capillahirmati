@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 class PerkaraControoller extends Controller
 {
     //
-
     /**
      * Display a listing of the resource.
      */
@@ -61,7 +60,8 @@ class PerkaraControoller extends Controller
     public function store(Request $request)
     {
         $validasi = [
-            'nama' => ['required'],
+            'nama' => ['required'], // penggugat
+            'tergugat' => ['required'],
             'nomor_hp' => ['required'],
             'nomor_perkara' => ['required'],
             'tanggal' => ['required'],
@@ -72,7 +72,7 @@ class PerkaraControoller extends Controller
         $validateData = $request->validate($validasi);
 
         if ($request->file('file_cover')) {
-            $validasi['file_cover'] = ['image', 'file', 'mimes:jpeg,png,jpg', 'max:5024'];
+            $validasi['file_cover'] = ['file', 'mimes:pdf', 'max:5024'];
         }
 
         $validateData['file_cover'] =  $request->file('file_cover')->store('file_cover');

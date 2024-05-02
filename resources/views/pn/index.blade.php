@@ -43,7 +43,7 @@
                                 <table id="example" class="display" style="width:100%">
                                     <thead>
                                         <tr>
-                                            <th>Nama Pelapor</th>
+                                            <th>Nama</th>
                                             <th>No. Keputusan</th>
                                             <th>Katagori</th>
                                             <th>Status</th>
@@ -53,7 +53,11 @@
                                     <tbody>
                                         @foreach ($perkara as $item)
                                             <tr>
-                                                <td>{{ $item->nama ?? null }} <br> {{ $item->no_hp ?? null }}</td>
+                                                <td>Penggugta/Pelapor : <b>{{ $item->nama ?? null }} </b>
+                                                    <br> Tergugta : <b>{{ $item->tergugta ?? '-' }} </b>
+                                                    <br> Kontak
+                                                    <b> {{ $item->nomor_hp ?? null }} </b>
+                                                </td>
                                                 <td>{{ $item->nomor_perkara ?? null }} <br> {{ $item->tanggal ?? null }}
                                                 </td>
                                                 <td>{{ $item->katagori }} </td>
@@ -78,7 +82,7 @@
                                                             class="badge badge-lg light badge-warning">Tinjau</span> </a>
                                                     @if (auth()->user()->level == 2)
                                                         <br> <br>
-                                                        <a href="https://wa.me/6282342020244?text=Ada Laporan Baru dari Disdukcapil Manado dengan Nomor Perkara {{ $item->nomor_perkara }}"
+                                                        <a href="https://wa.me/6282229532675?text=Ada Laporan Baru dari Disdukcapil Manado dengan Nomor Perkara {{ $item->nomor_perkara }} mohon di tindaklanjuti. "
                                                             target="_blank">
                                                             <span class="badge badge-lg light badge-default">Kirim
                                                                 Notif</span>

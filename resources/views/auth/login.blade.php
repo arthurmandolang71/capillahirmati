@@ -30,8 +30,7 @@
                             <div class="col-xl-12">
                                 <div class="auth-form">
                                     <div class="text-center mb-3">
-                                        <a href="index.html"><img
-                                                src="{{ asset('') }}assets/images/capilhubsementara.png"
+                                        <a href="index.html"><img src="{{ asset('') }}assets/images/panci.png"
                                                 width="400" alt=""></a>
                                     </div>
 

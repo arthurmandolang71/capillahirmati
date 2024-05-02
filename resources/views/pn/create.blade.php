@@ -21,7 +21,7 @@
                     <div class="card">
 
                         <!--**********************************
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                content star                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ***********************************-->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        content star                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ***********************************-->
                         <div class="card-body">
                             @if ($errors->any())
                                 <div class="alert alert-danger">
@@ -36,14 +36,14 @@
                             <form action="/perkara/" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
-                                    <div class="mb-6 col-md-6">
-                                        <label class="text-label form-label" for="validationCustomUsername">Nama Pelapor
+                                    <div class="mb-4 col-md-4">
+                                        <label class="text-label form-label" for="validationCustomUsername">Nama Penggugat
                                         </label>
                                         <div class="input-group">
                                             <span class="input-group-text"> <i class="bi bi-card-heading"></i> </span>
                                             <input name="nama" value="{{ old('nama') }}" type="text"
                                                 class="form-control @error('nama') is-invalid @enderror"
-                                                id="validationCustomUsernama" placeholder="Masukan nama pelapor">
+                                                id="validationCustomUsernama" placeholder="Masukan nama Penggugat">
                                             @error('nama')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -51,14 +51,31 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="mb-6 col-md-6">
-                                        <label class="text-label form-label" for="validationCustomUsername">Nomor. Wa
+                                    <div class="mb-4 col-md-4">
+                                        <label class="text-label form-label" for="validationCustomUsername">Nama Tergugat
+                                        </label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"> <i class="bi bi-card-heading"></i> </span>
+                                            <input name="tergugat" value="{{ old('tergugat') }}" type="text"
+                                                class="form-control @error('tergugat') is-invalid @enderror"
+                                                id="validationCustomUsertergugat" placeholder="Masukan nama tergugat ">
+                                            @error('tergugat')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="mb-4 col-md-4">
+                                        <label class="text-label form-label" for="validationCustomUsername">Nomor. Wa (yang
+                                            bisa dihubungi)
                                         </label>
                                         <div class="input-group">
                                             <span class="input-group-text"> <i class="bi bi-card-heading"></i> </span>
                                             <input name="nomor_hp" value="{{ old('nomor_hp') }}" type="text"
                                                 class="form-control @error('nomor_hp') is-invalid @enderror"
-                                                id="validationCustomUsernama" placeholder="Masukan nomor hp pelapor">
+                                                id="validationCustomUsernama"
+                                                placeholder="Masukan nomor yang bisa dihubungi">
                                             @error('nomor_hp')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -125,8 +142,9 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="mb-6 col-md-6">
-                                        <label class="text-label form-label" for="validationCustomUsername">*Foto Cover
+                                    <div class="mb-12 col-md-12">
+                                        <label class="text-label form-label" for="validationCustomUsername">*FIle Keputusan
+                                            (Scan PDF)
                                         </label>
                                         <div class="input-group">
                                             <div class="form-file">
@@ -142,9 +160,9 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="mb-6 col-md-6 text text-center">
+                                    {{-- <div class="mb-6 col-md-6 text text-center">
                                         <img class="img-preview1 img-fluid" width="400">
-                                    </div>
+                                    </div> --}}
                                 </div>
 
 
@@ -154,8 +172,8 @@
 
                         </div>
                         <!--**********************************
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                content start
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ***********************************-->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        content start
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ***********************************-->
                     </div>
                 </div>
             </div>
@@ -177,7 +195,7 @@
     <script src="{{ asset('') }}assets/js/plugins-init/select2-init.js"></script>
 @endSection
 
-<script>
+{{-- <script>
     function priviewImage1() {
         const image = document.querySelector('#image1');
         const view = document.querySelector('.img-preview1');
@@ -191,4 +209,4 @@
             view.src = oFREvent.target.result;
         }
     }
-</script>
+</script> --}}

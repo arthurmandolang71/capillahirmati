@@ -87,6 +87,7 @@
                         @else
                             <li><a href='/perkara/'>Data</a></li>
                         @endif
+                        <li><a href='/putusanpn'>Putusan PN</a></li>
                     </ul>
                 </li>
             @endcan
