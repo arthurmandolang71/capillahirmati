@@ -54,7 +54,7 @@
                                         @foreach ($perkara as $item)
                                             <tr>
                                                 <td>Penggugta/Pelapor : <b>{{ $item->nama ?? null }} </b>
-                                                    <br> Tergugta : <b>{{ $item->tergugta ?? '-' }} </b>
+                                                    <br> Tergugat : <b>{{ $item->tergugat ?? '-' }} </b>
                                                     <br> Kontak
                                                     <b> {{ $item->nomor_hp ?? null }} </b>
                                                 </td>
