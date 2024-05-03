@@ -31,7 +31,7 @@
                                 <div class="auth-form">
                                     <div class="text-center mb-3">
                                         <a href="index.html"><img src="{{ asset('') }}assets/images/panci.png"
-                                                width="400" alt=""></a>
+                                                class="img-fluid img-thumbnail" alt=""></a>
                                     </div>
 
                                     {{-- <h4 class="text-center mb-4">Login dengan akun anda</h4> --}}
