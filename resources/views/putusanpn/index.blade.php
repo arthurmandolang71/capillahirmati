@@ -50,6 +50,7 @@
                                         <tr>
                                             <th>No. Keputusan</th>
                                             <th>Tanggal</th>
+                                            <th>Pemohon/<br>Penggugat</th>
                                             <th>File</th>
                                             <th>#</th>
                                         </tr>
@@ -59,14 +60,14 @@
                                             <tr>
                                                 <td>{{ $item->nomor_perkara ?? null }}</td>
                                                 <td>{{ $item->tanggal ?? null }} </td>
-                                                <td> <a href="{{ asset('storage/' . $item->file) }}" class="btn btn-primary"
-                                                        target="_blank">File
-                                                        PDF</a>
+                                                <td>{{ $item->penggugat ?? null }} </td>
+                                                <td> <a href="{{ asset('storage/' . $item->file) }}" target="_blank">
+                                                        <span class="badge badge-success">Preview</span></a>
                                                 </td>
                                                 <td>
                                                     @if (auth()->user()->level == 5)
-                                                        <a href="/putusanpn/{{ $item->id }}/edit"
-                                                            class="btn btn-primary"> Edit
+                                                        <a href="/putusanpn/{{ $item->id }}/edit">
+                                                            <span class="badge badge-warning">Edit</span></a>
                                                         </a>
                                                     @endif
                                                 </td>

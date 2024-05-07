@@ -21,7 +21,7 @@
                     <div class="card">
 
                         <!--**********************************
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                content star                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ***********************************-->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        content star                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ***********************************-->
                         <div class="card-body">
                             @if ($errors->any())
                                 <div class="alert alert-danger">
@@ -51,41 +51,78 @@
 
                                 @endphp
 
-
-
                                 <div class="row">
-                                    <div class="mb-4 col-md-4">
-                                        <label class="text-label form-label" for="validationCustomUsername">Nama Pelapor
-                                        </label>
-                                        <div class="input-group">
-                                            <span class="input-group-text"> <i class="bi bi-card-heading"></i> </span>
-                                            <input name="nama" value="{{ old('nama', $perkara->nama) }}" type="text"
-                                                class="form-control @error('nama') is-invalid @enderror"
-                                                id="validationCustomUsernama" placeholder="Masukan nama pelapor"
-                                                {{ $edit_capil }}>
-                                            @error('nama')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
+                                    @if ($perkara->katagori == 'Perceraian')
+                                        <div class="mb-4 col-md-4">
+                                            <label class="text-label form-label" for="validationCustomUsername">Nama Pelapor
+                                            </label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"> <i class="bi bi-card-heading"></i> </span>
+                                                <input name="nama" value="{{ old('nama', $perkara->nama) }}"
+                                                    type="text" class="form-control @error('nama') is-invalid @enderror"
+                                                    id="validationCustomUsernama" placeholder="Masukan nama pelapor"
+                                                    {{ $edit_capil }}>
+                                                @error('nama')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="mb-4 col-md-4">
-                                        <label class="text-label form-label" for="validationCustomUsername">Nama Tergugat
-                                        </label>
-                                        <div class="input-group">
-                                            <span class="input-group-text"> <i class="bi bi-card-heading"></i> </span>
-                                            <input name="tergugat" value="{{ old('tergugat', $perkara->tergugat) }}"
-                                                type="text" class="form-control @error('tergugat') is-invalid @enderror"
-                                                id="validationCustomUsertergugat" placeholder="Masukan nama tergugat "
-                                                {{ $edit_capil }}>
-                                            @error('tergugat')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
+                                        <div class="mb-4 col-md-4">
+                                            <label class="text-label form-label" for="validationCustomUsername">Nama
+                                                Tergugat
+                                            </label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"> <i class="bi bi-card-heading"></i> </span>
+                                                <input name="tergugat" value="{{ old('tergugat', $perkara->tergugat) }}"
+                                                    type="text"
+                                                    class="form-control @error('tergugat') is-invalid @enderror"
+                                                    id="validationCustomUsertergugat" placeholder="Masukan nama tergugat "
+                                                    {{ $edit_capil }}>
+                                                @error('tergugat')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
                                         </div>
-                                    </div>
+                                    @else
+                                        <div class="mb-6 col-md-6">
+                                            <label class="text-label form-label" for="validationCustomUsername">Pemohon
+                                            </label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"> <i class="bi bi-card-heading"></i> </span>
+                                                <input name="nama" value="{{ old('nama', $perkara->nama) }}"
+                                                    type="text" class="form-control @error('nama') is-invalid @enderror"
+                                                    id="validationCustomUsernama" placeholder="Masukan nama pelapor"
+                                                    {{ $edit_capil }}>
+                                                @error('nama')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="mb-6 col-md-6 invisible">
+                                            <label class="text-label form-label" for="validationCustomUsername">Nama
+                                                Tergugat
+                                            </label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"> <i class="bi bi-card-heading"></i> </span>
+                                                <input name="tergugat" value="{{ old('tergugat', $perkara->tergugat) }}"
+                                                    type="text"
+                                                    class="form-control @error('tergugat') is-invalid @enderror"
+                                                    id="validationCustomUsertergugat" placeholder="Masukan nama tergugat "
+                                                    {{ $edit_capil }}>
+                                                @error('tergugat')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    @endif
                                     <div class="mb-4 col-md-4">
                                         <label class="text-label form-label" for="validationCustomUsername">Nomor. Wa
                                         </label>
@@ -105,7 +142,8 @@
                                 </div>
                                 <div class="row">
                                     <div class="mb-6 col-md-6">
-                                        <label class="text-label form-label" for="validationCustomUsername">Nomor Perkara
+                                        <label class="text-label form-label" for="validationCustomUsername">Nomor
+                                            Perkara
                                         </label>
                                         <div class="input-group">
                                             <span class="input-group-text"> <i class="bi bi-card-heading"></i> </span>
@@ -185,7 +223,8 @@
 
                                 <div class="row">
                                     <div class="mb-6 col-md-6">
-                                        <label class="text-label form-label" for="validationCustomUsername">*File Perkara
+                                        <label class="text-label form-label" for="validationCustomUsername">*File
+                                            Perkara
                                         </label>
                                         <div class="input-group">
                                             @if (auth()->user()->level == 2)
@@ -279,8 +318,8 @@
 
                         </div>
                         <!--**********************************
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                content start
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ***********************************-->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        content start
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ***********************************-->
                     </div>
                 </div>
             </div>

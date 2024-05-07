@@ -58,6 +58,8 @@ class PutusanPnController extends Controller
         $validasi = [
             'nomor_perkara' => [],
             'tanggal' => [],
+            'penggugat' => [],
+            'tergugat' => [],
             'file' => [],
         ];
 
@@ -98,6 +100,8 @@ class PutusanPnController extends Controller
         $validasi = [
             'nomor_perkara' => [],
             'tanggal' => [],
+            'penggugat' => [],
+            'tergugat' => [],
             'file' => [],
         ];
 

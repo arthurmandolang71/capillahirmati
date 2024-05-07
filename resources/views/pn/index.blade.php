@@ -53,11 +53,18 @@
                                     <tbody>
                                         @foreach ($perkara as $item)
                                             <tr>
-                                                <td>Penggugta/Pelapor : <b>{{ $item->nama ?? null }} </b>
-                                                    <br> Tergugat : <b>{{ $item->tergugat ?? '-' }} </b>
-                                                    <br> Kontak
-                                                    <b> {{ $item->nomor_hp ?? null }} </b>
-                                                </td>
+                                                @if ($item->katagori == 'Perceraian')
+                                                    <td>Penggugat : <b>{{ $item->nama ?? null }} </b>
+                                                        <br> Tergugat : <b>{{ $item->tergugat ?? '-' }} </b>
+                                                        <br> Kontak
+                                                        <b> {{ $item->nomor_hp ?? null }} </b>
+                                                    </td>
+                                                @else
+                                                    <td>Pemohon : <b>{{ $item->nama ?? null }} </b>
+                                                        <br> Kontak
+                                                        <b> {{ $item->nomor_hp ?? null }} </b>
+                                                    </td>
+                                                @endif
                                                 <td>{{ $item->nomor_perkara ?? null }} <br> {{ $item->tanggal ?? null }}
                                                 </td>
                                                 <td>{{ $item->katagori }} </td>
