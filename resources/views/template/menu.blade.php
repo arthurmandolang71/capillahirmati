@@ -51,7 +51,7 @@
             <li>
                 <a href="/">
                     <i class="bi bi-house"></i>
-                    <span class="nav-text">Weelcome</span>
+                    <span class="nav-text">Welcome</span>
                 </a>
             </li>
 
