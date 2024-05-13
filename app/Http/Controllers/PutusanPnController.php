@@ -17,7 +17,7 @@ class PutusanPnController extends Controller
         $putusanpn = PutusanPn::orderBy('created_at')->get();
 
         return view('putusanpn.index', [
-            'title' => 'Data Konfirmasi Keputusan PN Manado',
+            'title' => 'Data Pengiriman Salinan Putusan',
             'putusanpn' => $putusanpn,
         ]);
     }
@@ -46,7 +46,7 @@ class PutusanPnController extends Controller
     {
         // $katagori = Stakeholder::all();
         return view('putusanpn.create', [
-            'title' => 'Tambah Keputusan PN',
+            'title' => 'Tambah Pengiriman Salinan Putusan',
         ]);
     }
 

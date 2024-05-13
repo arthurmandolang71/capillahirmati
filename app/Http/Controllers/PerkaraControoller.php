@@ -17,7 +17,7 @@ class PerkaraControoller extends Controller
         $perkara = Pekara::orderBy('created_at')->get();
 
         return view('pn.index', [
-            'title' => 'Data Konfirmasi Keputusan PN Manado',
+            'title' => 'Data Konfirmasi Putusan Perceraian (PN Manado)',
             'perkara' => $perkara,
         ]);
     }
@@ -47,7 +47,7 @@ class PerkaraControoller extends Controller
         // $katagori = Stakeholder::all();
 
         return view('pn.create', [
-            'title' => 'Tambah Keputusan PN',
+            'title' => 'Tambah Putusan PN',
             'katagori' => ['Perceraian', 'Perubahan Biodata,', 'Pengakatan Anak', 'Pengakatan Ana', 'Pengakuan Anak'],
             'status' => ['Perlu Konfirmasi', 'Tidak Valid', 'Valid'],
             // 'katagori' => $katagori,

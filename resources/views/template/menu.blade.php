@@ -83,11 +83,11 @@
                         <li><a href='/perkara/dash'>Dashboard</a></li>
                         @if (auth()->user()->level == 2)
                             <li><a href="/perkara/create">Tambah</a></li>
-                            <li><a href='/perkara/'>Data</a></li>
+                            <li><a href='/perkara/'>Data Konfirmasi Putusan Perceraian</a></li>
                         @else
-                            <li><a href='/perkara/'>Data</a></li>
+                            <li><a href='/perkara/'>Data Konfirmasi Putusan Perceraian</a></li>
                         @endif
-                        <li><a href='/putusanpn'>Putusan PN</a></li>
+                        <li><a href='/putusanpn'>Pengiriman SalPut</a></li>
                     </ul>
                 </li>
             @endcan
