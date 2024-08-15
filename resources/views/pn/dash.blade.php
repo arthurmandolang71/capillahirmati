@@ -31,7 +31,7 @@
                                     </svg>
                                 </span>
                                 <div>
-                                    <h3 class="text-white">Selamat Datang di Capil-Hub </h3>
+                                    <h3 class="text-white">Selamat Datang Aplikasi SIKOPISUSU </h3>
                                     <p>Capil Hub merupakan tindak lanjut dari semua kerja sama lintas instansi</p>
                                     {{-- <a class="text-white" href="javascript:void(0);">Learn more >></a> --}}
                                 </div>

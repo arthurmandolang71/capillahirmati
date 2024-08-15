@@ -77,7 +77,7 @@
                 <li>
                     <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                         <i class="bi bi-file-earmark-fill"></i>
-                        <span class="nav-text">PN Manado</span>
+                        <span class="nav-text">SIKOPISUSU</span>
                     </a>
                     <ul aria-expanded="false">
                         <li><a href='/perkara/dash'>Dashboard</a></li>
